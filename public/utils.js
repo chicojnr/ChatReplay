@@ -97,8 +97,8 @@ async function createVideoTable(pList, pTableName, pListName) {
                 <td class="text-truncate">
                     <a target="_blank" href="https://www.youtube.com/watch?v=${e.id}">${e.title}</a>
                 </td>`);
-                // <i class="fa fa-download" id="iDownload"></i>
-                // <i class="fa-solid fa-circle-play" id="iPlayVideo"></i>
+            // <i class="fa fa-download" id="iDownload"></i>
+            // <i class="fa-solid fa-circle-play" id="iPlayVideo"></i>
             const hasVideo = dlVideos.indexOf(`video_${e.id}.mp4`) >= 0 ? '<i class="fa-solid fa-circle-play text-success" id="iPlayVideo"></i>' : '<i class="fa fa-download" id="iDownload"></i>';
             const hasVideoMR = dlVideos.indexOf(`video_${e.id}_maxres.mp4`) >= 0 ? '<i class="fa-solid fa-circle-play text-primary" id="iPlayVideoMax"></i>' : '<span class="fa-stack" style="width: 16px"><i class="fa fa-certificate fa-stack-1x text-warning"></i><i class="fa fa-download fa-stack-1x" id="iDownloadMaxRes"></i></span>';
             const hasChat = e.no_chat ? '<i class="fa fa-comments" style="color: lightgray; cursor: default"></i>' : '<i class="fa fa-comments" id="iComments"></i>';
@@ -208,6 +208,67 @@ function loadImage(id, url) {
     };
 }
 
+function createList(pElement, pData, pType, pIncludeAll = 'N') {
+    const element = $('#' + pElement);
+    element.empty();
+    if (pIncludeAll.toUpperCase() === 'Y') {
+        element.append(`
+            <li class="d-flex justify-content-between">
+                <div class="form-check">
+                    <input class="form-check-input form-check-input-sm" type="checkbox" id="checkbox-t" value="T">
+                    <label class="form-check-label text-truncate" for="checkbox-T"> <b>TODOS</b> </label>
+                </div>
+            </li> `);
+    }
+    if (pType.toUpperCase() === 'LIVE') {
+        pData.forEach(e => {
+            element.append(`
+            <li class="d-flex justify-content-between">
+                <div class="form-check">
+                    <input class="form-check-input form-check-input-sm" type="checkbox" id="checkbox-${e.id}" value="${e.id}">
+                    <label class="form-check-label text-truncate label-truncate" for="checkbox-${e.id}"> ${e.publishedAt} - ${e.title} </label>
+                </div>
+            </li> `);
+        });
+    }
+    // form-check-inline
+    if (pType.toUpperCase() === 'AUTHOR') {
+        pData.forEach(e => {
+            let icon = getIcon(e.author);
+            element.append(`
+            <li class="d-flex justify-content-between">
+                <div class="form-check">
+                    <input class="form-check-input form-check-input-sm" type="checkbox" id="checkbox-${e.author.id}" value="${e.author.id}">
+                    ${icon}
+                    <label class="form-check-label text-truncate label-truncate" for="checkbox-${e.author.id}">  ${e.author.name} (${e.count}) </label>
+                </div>
+            </li> `);
+        });
+    }
+}
+
+function getIcon(pAuthor) {
+    let icon = '';
+    console.log(pAuthor.id);
+    let iconAux = jumentos.map(m => m.authorChannelId).indexOf(pAuthor.id);
+    if (iconAux !== -1) {
+        icon = `<i class="fa-solid ${jumentos[iconAux].icon}"></i> `;
+    }
+
+    if (pAuthor.isChatOwner === 1) {
+        icon += '<i class="fa-solid fa-crown text-warning"></i> ';
+    }
+
+    if (pAuthor.isChatModerator === 1) {
+        icon += '<i class="fa-solid fa-wrench"></i> ';
+    }
+
+    if (pAuthor.isChatSponsor === 1) {
+        icon += '<i class="fa-solid fa-dollar-sign text-success"></i> ';
+    }
+
+    return icon;
+}
 
 
 
