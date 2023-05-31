@@ -249,8 +249,7 @@ function createList(pElement, pData, pType, pIncludeAll = 'N') {
 
 function getIcon(pAuthor) {
     let icon = '';
-    console.log(pAuthor.id);
-    let iconAux = jumentos.map(m => m.authorChannelId).indexOf(pAuthor.id);
+    let iconAux = jumentos.map(m => m.channelId).indexOf(pAuthor.id);
     if (iconAux !== -1) {
         icon = `<i class="fa-solid ${jumentos[iconAux].icon}"></i> `;
     }

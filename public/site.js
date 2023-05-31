@@ -5,8 +5,6 @@ let selectedValuesAuthors = [];
 $('body').on('change', '#lstAuthHistory > li', async function () {
     try {
         $('#load-screen').show();
-        //tratar o id do checkbox
-        //tratar o click no icone chat
         const val = $(this).find('input').val()
         let all = null;
         if (val === 'T' && $(this).find('input').prop('checked')) {
@@ -25,34 +23,51 @@ $('body').on('change', '#lstAuthHistory > li', async function () {
                 selectedValuesAuthors = selectedValuesAuthors.filter((selectedValue) => selectedValue !== val);
             }
         }
-        // console.log('Lives', selectedValues)
-        // console.log('Authors', selectedValuesAuthors)
-        let dataBase = [];
-        await Promise.all(selectedValues.map(async (id) => {
-            const chatResponse = await fetch(`/chatbyliveid?liveId=${id}`);
-            const chatData = await chatResponse.json();
-            if (chatData.length > 0) {
-                chatData.forEach(async (e) => {
-                    dataBase.push(e);
-                })
-            };
-        }));
-        dataBase.sort((a, b) => a.timestamp - b.timestamp);
-        if (all !== 'T') {
-            let chat = [];
-            selectedValuesAuthors.map((e) => {
-                const chatFiltered = dataBase.filter(function (i) {
-                    return i.author.id === e;
-                });
-                chatFiltered.forEach((j) => {
-                    chat.push(j);
-                });
-            })
-            chat.sort((a, b) => a.timestamp - b.timestamp);
-            createChatTable(chat, "tblChatHistory")
+        $('#tblChatHistory tr').hide();
+
+        if (selectedValuesAuthors.length === 0) {
+            $('#tblChatHistory tr').show();
         } else {
-            createChatTable(dataBase, "tblChatHistory")
+            selectedValuesAuthors.forEach((e, i) => {
+                console.log(e);
+                $('#tblChatHistory tr').each(function () {
+                    if ($(this).attr('data-idusr') === e) {
+                        $(this).show();
+                    }
+                    // Código a ser executado para cada linha
+                    // Você pode acessar a linha atual usando $(this)
+                    // Por exemplo, $(this).text() para obter o texto da linha
+                });
+            });
         }
+        // console.log('Lives', selectedValues)
+        console.log('Authors', selectedValuesAuthors)
+        // let dataBase = [];
+        // await Promise.all(selectedValues.map(async (id) => {
+        //     const chatResponse = await fetch(`/chatbyliveid?liveId=${id}`);
+        //     const chatData = await chatResponse.json();
+        //     if (chatData.length > 0) {
+        //         chatData.forEach(async (e) => {
+        //             dataBase.push(e);
+        //         })
+        //     };
+        // }));
+        // dataBase.sort((a, b) => a.timestamp - b.timestamp);
+        // if (all !== 'T') {
+        //     let chat = [];
+        //     selectedValuesAuthors.map((e) => {
+        //         const chatFiltered = dataBase.filter(function (i) {
+        //             return i.author.id === e;
+        //         });
+        //         chatFiltered.forEach((j) => {
+        //             chat.push(j);
+        //         });
+        //     })
+        //     chat.sort((a, b) => a.timestamp - b.timestamp);
+        //     createChatTable(chat, "tblChatHistory")
+        // } else {
+        //     createChatTable(dataBase, "tblChatHistory")
+        // }
     } catch (err) {
         console.error(err.message);
     } finally {
@@ -153,7 +168,7 @@ $("#btnGetData").on('click', async () => {
         $('#load-screen').show()
         const response = await fetch(`/getdata?videoId=${videoId}`);
         let data = await response.json();
-        
+
     } catch (err) {
         console.error(err);
     } finally {
@@ -169,7 +184,6 @@ $("#btn-getlive").on('click', async () => {
         $('#load-screen').show()
         const response = await fetch(`/getchat?videoId=${videoId}`);
         let data = await response.json();
-        console.log(data)
         const result = data.reduce((acc, curr) => {
             const { author } = curr;
             const existingAuthor = acc.find((a) => a.author.id === author.id);
@@ -194,7 +208,7 @@ $("#btn-getlive").on('click', async () => {
 
 $('body').on('click', 'td > img', (e) => {
     let imageUrl = $(e.currentTarget).data('pictureurl');
-    let newImageUrl = imageUrl.replace(/s32/g, '');
+    let newImageUrl = imageUrl.replace(/s32/g, '').replace(/s64/g, '');
     showChannelImage($(e.currentTarget).parent().find('a').text(), newImageUrl);
 })
 
