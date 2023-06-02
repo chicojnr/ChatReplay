@@ -178,6 +178,10 @@ $("#btnGetData").on('click', async () => {
     }
 });
 
+$('#btnShowFilter').on('click', () => {
+    $('#div-filter').toggle();
+});
+
 $("#btn-getlive").on('click', async () => {
     const videoId = $('#ttb-liveid').val()
     try {

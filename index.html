@@ -21,11 +21,11 @@
 <body>
   <div class="loader-screen" id="load-screen">
     <div class="loader">
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
     </div>
-</div>
+  </div>
 
   <nav class="navbar bg-primary" style="--bs-bg-opacity: 0.75">
     <div class="container-fluid">
@@ -78,7 +78,7 @@
         aria-labelledby="nav-chathistory-tab">
         <div class="container-sm text-center pt-2 pb-2">
           <div class="row g-1">
-            <div class="col-6">
+            <div class="col-5">
               <fieldset id="fds-getliveid">
                 <div class="input-group input-group-sm">
                   <input type="text" class="form-control form-control-sm" placeholder="Live ID" id="ttb-liveid"
@@ -112,6 +112,16 @@
               <button class="btn btn-secondary btn-sm " type="button" id="btnCaptureTable">
                 <i class="fa-solid fa-file-arrow-down text-white"></i>
               </button>
+            </div>
+            <div class="col-1 d-grid">
+              <button class="btn btn-secondary btn-sm " type="button" id="btnShowFilter">
+                <i class="fa-solid fa-filter"></i>
+              </button>
+            </div>
+          </div>
+          <div class="row pt-2" id="div-filter" style="display: none;">
+            <div class="col">
+              <input type="text" class="form-control" id="ttb-filter">
             </div>
           </div>
         </div>
