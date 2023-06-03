@@ -270,7 +270,7 @@ function showVideo(pTitle, pSrc) {
 }
 
 function normalizeObj(obj) {
-    let newMessage = obj.message.replace(/'/g, "\\'");
+    let newMessage = obj.message ? obj.message.replace(/'/g, "\\'") : '';
     newMessage = replaceEmojis(newMessage, emojis)
     let newObj = {
         id: obj.message_id,
