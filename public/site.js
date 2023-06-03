@@ -190,19 +190,21 @@ $("#btn-getlive").on('click', async () => {
         $('#load-screen').show()
         const response = await fetch(`/getchat?videoId=${videoId}`);
         let data = await response.json();
-        const result = data.reduce((acc, curr) => {
-            const { author } = curr;
-            const existingAuthor = acc.find((a) => a.author.id === author.id);
-            if (existingAuthor) {
-                existingAuthor.count++;
-            } else {
-                acc.push({ author, count: 1 });
-            }
-            return acc;
-        }, []);
-        result.sort((a, b) => a.author.name.trim().localeCompare(b.author.name.trim()));
-        createList('lstAuthHistory', result, 'author');
-        createChatTable(data, 'tblChatHistory')
+        if (data.length > 0) {
+            const result = data.reduce((acc, curr) => {
+                const { author } = curr;
+                const existingAuthor = acc.find((a) => a.author.id === author.id);
+                if (existingAuthor) {
+                    existingAuthor.count++;
+                } else {
+                    acc.push({ author, count: 1 });
+                }
+                return acc;
+            }, []);
+            result.sort((a, b) => a.author.name.trim().localeCompare(b.author.name.trim()));
+            createList('lstAuthHistory', result, 'author');
+            createChatTable(data, 'tblChatHistory')
+        }
     } catch (err) {
         console.error(err);
     } finally {
