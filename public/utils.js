@@ -77,8 +77,8 @@ async function createChatTable(list, tableName) {
     showTooltip('.fa-clock');
     showTooltip('.fa-users');
 
-    const currencyTotals = {};
-    const donatorTotals = {};
+    let currencyTotals = {};
+    let donatorTotals = {};
     if (arraySuperChat.length > 0) {
 
         arraySuperChat.forEach((e) => {
@@ -135,17 +135,15 @@ async function createChatTable(list, tableName) {
 
         const ul = `<ul>${listItems.join('')}</ul>`;
 
-        console.log(ul);
-
-
-        console.log(donatorTotals);
-
         currencySpans.forEach((e) => {
             $('#div-superchat').append(e)
         });
         $('#div-superchat').append(`<span class="badge rounded-pill text-bg-primary" id="btn-show-donators" style="cursor: pointer;">Doadores</span>`)
         $('#donator-modal-body').append(ul)
         $('#div-superchat').show();
+        donatorTotals = {};
+        currencyTotals = {};
+        arraySuperChat = [];
     } else {
         $('#div-superchat').hide();
     }
