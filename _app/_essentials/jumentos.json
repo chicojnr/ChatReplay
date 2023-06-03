@@ -1,54 +1,668 @@
 [
-    { "channelId": "UCg_l1msFGdTC5uDuk_W03JQ", "icon": "fa-straitjacket", "realName": "Verdade ou Subjetividade", "message": "" },
-    { "channelId": "UCY38wWbZUCUcDVNbA-URh_w", "icon": "fa-straitjacket", "realName": "PC master racer", "message": "" },
-    { "channelId": "UC5NJFaSrBg2sFX-bTBUtrCg", "icon": "fa-straitjacket", "realName": "Juca", "message": "" },
-    { "channelId": "UCAIO2B1yomxWtBy1HsESv8g", "icon": "fa-straitjacket", "realName": "Irmão Jericó", "message": "" },
-    { "channelId": "UCZO9N2MArsschdkk2Jh8gdA", "icon": "fa-straitjacket", "realName": "Zard", "message": "" },
-    { "channelId": "UCljSD1_2mQN0iOSzJhYfwHg", "icon": "fa-straitjacket", "realName": "Maria", "message": "" },
-    { "channelId": "UCpZtZCDNVCNteNtrqdUk84Q", "icon": "fa-straitjacket", "realName": "Valdo Costa", "message": "" },
-    { "channelId": "UCI4ok1Z3G1lBLkPifeWWHrA", "icon": "fa-straitjacket", "realName": "TV Bolt", "message": "" },
-    { "channelId": "UCJi-5i2JW0GZTmCgkGEJ8JA", "icon": "fa-straitjacket", "realName": "Pedro Carvalho", "message": "" },
-    { "channelId": "UCTZAsA4soCELMgwlkGiV4qA", "icon": "fa-straitjacket", "realName": "Milton TP", "message": "" },
-    { "channelId": "UC3V1fqhyT7hq9P4eNGzfpaQ", "icon": "fa-solid fa-star text-warning", "realName": "Douglas Vaz", "message": "Oi @Douglas" }, 
-    { "channelId": "UCODSsUo9IZcMB_-nuiiuwlA", "icon": "fa-solid fa-star text-warning", "realName": "Ramon Loureiro", "message": "Oi @Ramon" }, 
-    { "channelId": "UC1wT5eUIZg5deHyRhsorwcA", "icon": "fa-straitjacket", "realName": "4NT🚫MæŘŘĪƏĐ🚫", "message": "" },
-    { "channelId": "UCoD2nh6OCM4-2MJ6BFtvimQ", "icon": "fa-straitjacket", "realName": "Laudo Borges", "message": "" },
-    { "channelId": "UCjFbqH2NG1w9_lyC4czJphg", "icon": "fa-straitjacket", "realName": "ViToR FeLiPe", "message": "" },
-    { "channelId": "UCH4b8tWbfXHVuCS9WntRe0A", "icon": "fa-straitjacket", "realName": "X-MEN", "message": "" },
-    { "channelId": "UCOFPWd92UXIsBEawsmBasJw", "icon": "fa-straitjacket", "realName": "Artigos Legais", "message": "" },
-    { "channelId": "UCoPg9ZqSrAuL6tI090lSoKw", "icon": "fa-straitjacket", "realName": "Pablo", "message": "" },
-    { "channelId": "UCGfXGfaFlUNQhw1lDqZR5vg", "icon": "fa-straitjacket", "realName": "Pablo", "message": "" },
-    { "channelId": "UCkIiV1m6810Fb3HqK_js8gw", "icon": "fa-straitjacket", "realName": "Pablo", "message": "" },
-    { "channelId": "UCcxV-lNrN0BXByemy-opS9Q", "icon": "fa-straitjacket", "realName": "Pablo", "message": "" },
-    { "channelId": "UCWXWnh7FhOgGYsAtiVEtfLw", "icon": "fa-straitjacket", "realName": "Pablo", "message": "" },
-    { "channelId": "UCQarzSHiYF5lKrC7TTFb7zg", "icon": "fa-straitjacket", "realName": "Pablo", "message": "" },
-    { "channelId": "UC735uDM6WRc_blo6pz4r-gw", "icon": "fa-straitjacket", "realName": "Pablo", "message": "" },
-    { "channelId": "UC3ioxw-DAi52oBnWcmq8twg", "icon": "fa-straitjacket", "realName": "Pablo", "message": "" },
-    { "channelId": "UCVnKCap2vok0GkSs-MuXTdg", "icon": "fa-straitjacket", "realName": "Pablo", "message": "" },
-    { "channelId": "UCw74PU6U9eBq-Xn96SRPVXg", "icon": "fa-straitjacket", "realName": "Pablo", "message": "" },
-    { "channelId": "UC4Pykg7yoAcjK4bmmBg00iA", "icon": "fa-straitjacket", "realName": "Pablo", "message": "" },
-    { "channelId": "UC1wJmagQA5GE6R5OryJAB8Q", "icon": "fa-straitjacket", "realName": "Leandro Gemaque", "message": "Mama saco do Juca no chat. E aí retardado? @Leandro Gemaque" },
-    { "channelId": "UCqBFFM2oa6-3Gn4Sa8hkV9A", "icon": "fa-straitjacket", "realName": "Leandro Gemaque", "message": "Mama saco do Juca no chat. E aí retardado? @Leandro Gemaque" },
-    { "channelId": "UCphHnn7SOqPyj39L6jFnU7A", "icon": "fa-straitjacket", "realName": "Globanoia", "message": "" },
-    { "channelId": "UC0N43irG1h5PTQCdJis20nQ", "icon": "fa-straitjacket", "realName": "Donato", "message": "Guardem as carteiras, o TP mais bandido de todos está no chat. Oi @Donato, seu canalha" },
-    { "channelId": "UCV9686pLmbZ9fM241PxZiWQ", "icon": "fa-straitjacket", "realName": "Rafa Oliveira", "message": "" },
-    { "channelId": "UCV9686pLmbZ9fM241PxZiWQ", "icon": "fa-straitjacket", "realName": "Rafa Oliveira", "message": "" },
-    { "channelId": "UCf8gc9mUbesbUtIck0CdIUQ", "icon": "fa-straitjacket", "realName": "Rosemeire Nascimento", "message": "" },
-    { "channelId": "UCiToMAnIoN2XW9kHffaNlrA", "icon": "fa-straitjacket", "realName": "Pod Quest?", "message": "Olha pai, o menino que fica ajoelhado na frente do pastor! Oi @Pod Quest?" },
-    { "channelId": "UC0uKSOHsDttEaNhmiioDH5A", "icon": "fa-straitjacket", "realName": "Adamfluido", "message": "" },
-    { "channelId": "UC0WpTR6IeRMztb2GaJdrprA", "icon": "fa-straitjacket", "realName": "Nelci", "message": "" },
-    { "channelId": "UCKYaaG_TPh_LesniBTlwP6w", "icon": "fa-straitjacket", "realName": "Nelci", "message": "" },
-    { "channelId": "UCjYpzcbu__5AEfc5UKlXCyA", "icon": "fa-straitjacket", "realName": "Joao Neto", "message": "Ave Maria, chegou o maluco. Tá bebado @Joao Neto" },
-    { "channelId": "UCrYSlgLAfWbbJEhbhUVkzlg", "icon": "fa-straitjacket", "realName": "Edna Mesquita", "message": "" },
-    { "channelId": "UClCoI0ybHaAIqxQbaMfQPDA", "icon": "fa-straitjacket", "realName": "Binho", "message": "Fuga na APAE, o Binho chegou. Oi @Binho" },
-    { "channelId": "UCJMBVClZuIQD9oXg4nh5bMA", "icon": "fa-straitjacket", "realName": "Walter José", "message": "Chegou o homem que fala que o chumbo é magnético, outro doental. Oi @Walter José" },
-    { "channelId": "UCHrPPkn0n8A7TNkbGB9_dRg", "icon": "fa-straitjacket", "realName": "D Science", "message": "Esse aqui é esquizofrênico, melhor deixar quietinho! Oi @D Science" },
-    { "channelId": "UC8XmBl7BoVXNeczrZJ1sKag", "icon": "fa-bull", "realName": "Robertoba", "message": "O ladrão de software, sonegador, alcoólatra, canalha, vagabundo e mentiroso está no chat. Seja bem vindo querido @Roberto Scur. PS. Escondam as chaves dos softwares originais." },
-    { "channelId": "UCPQNcicjqVZca6hEHoim21Q", "icon": "fa-capsules text-danger", "realName": "fakeflip", "message": "O coitado mais idiota da TP chegou! Oi @fakeflip" },
-    { "channelId": "UCEVv1l7ntSq2Exfddne3DJw", "icon": "fa-straitjacket", "realName": "Nature Sounds", "message": "TP Burro! @Nature Sounds" },
-    { "channelId": "UCxySpiqDxQICmVQ16TIC9UQ", "icon": "fa-straitjacket", "realName": "Leo Gustavo", "message": "Olha!!! Um mongolóde! Oi @Leo Gustavo" },
-    { "channelId": "UCbMcWuOucfj6MyUeq0_9O2Q", "icon": "fa-straitjacket", "realName": "Em Busca da Carreira Inexplicavel", "message": "Outro retardado no chat. Olá @Em Busca da Carreira Inexplicavel" },
-    { "channelId": "UC-nqUa3m-EWPVjgLuXijJLA", "icon": "fa-straitjacket", "realName": "Lucas Rocha", "message": "Esse é TP, ou seja, analfabeto! Oi @Lucas Rocha" },
-    { "channelId": "UCEUVRoNluEO7MH9k10s7-mg", "icon": "fa-straitjacket", "realName": "Z8 VERDADEIRO", "message": "Mais um monglóide! Oi @Z8 VERDADEIRO" },
-    { "channelId": "UCYzfuJ8e5rsmD4ahjVyWpMA", "icon": "fa-straitjacket", "realName": "Terra Plana Evidências", "message": "Olha! O ex-detento operador de caça-níquel está bostejando! Oi @Terra Plana Evidências" }
+    {
+        "channelId": "0ktlJMua_T01CcOx7rQ",
+        "icon": "fa-solid fa-star text-warning",
+        "realName": "Brunao",
+        "message": null
+    },
+    {
+        "channelId": "UC-nqUa3m-EWPVjgLuXijJLA",
+        "icon": "fa-straitjacket",
+        "realName": "Lucas Rocha",
+        "message": null
+    },
+    {
+        "channelId": "UC0N43irG1h5PTQCdJis20nQ",
+        "icon": "fa-straitjacket",
+        "realName": "Donato",
+        "message": null
+    },
+    {
+        "channelId": "UC0WpTR6IeRMztb2GaJdrprA",
+        "icon": "fa-straitjacket",
+        "realName": "Nelci",
+        "message": null
+    },
+    {
+        "channelId": "UC0hVrMueuNZPx53y9syhHHQ",
+        "icon": "fa-straitjacket",
+        "realName": "Gilvan",
+        "message": null
+    },
+    {
+        "channelId": "UC0uKSOHsDttEaNhmiioDH5A",
+        "icon": "fa-straitjacket",
+        "realName": "Adamfluido",
+        "message": null
+    },
+    {
+        "channelId": "UC1wJmagQA5GE6R5OryJAB8Q",
+        "icon": "fa-straitjacket",
+        "realName": "Gemaque",
+        "message": null
+    },
+    {
+        "channelId": "UC1wT5eUIZg5deHyRhsorwcA",
+        "icon": "fa-straitjacket",
+        "realName": null,
+        "message": null
+    },
+    {
+        "channelId": "UC2OWYyc99QLkcVIvqLlhfbQ",
+        "icon": "fa-straitjacket",
+        "realName": "Home Studio",
+        "message": null
+    },
+    {
+        "channelId": "UC2ZVnUrKWbP5prbIYkVMfwA",
+        "icon": "fa-straitjacket",
+        "realName": "Casa Nova",
+        "message": null
+    },
+    {
+        "channelId": "UC2y-0ktlJMua_T01CcOx7rQ",
+        "icon": "fa-straitjacket",
+        "realName": "Brunao",
+        "message": null
+    },
+    {
+        "channelId": "UC3V1fqhyT7hq9P4eNGzfpaQ",
+        "icon": "fa-solid fa-star text-primary",
+        "realName": "Douglas",
+        "message": null
+    },
+    {
+        "channelId": "UC3ioxw-DAi52oBnWcmq8twg",
+        "icon": "fa-straitjacket",
+        "realName": "Pablo",
+        "message": null
+    },
+    {
+        "channelId": "UC3nowrfgSol0Cwe6y89UbVg",
+        "icon": "fa-straitjacket",
+        "realName": "Siga",
+        "message": null
+    },
+    {
+        "channelId": "UC4Pykg7yoAcjK4bmmBg00iA",
+        "icon": "fa-straitjacket",
+        "realName": "Pablo",
+        "message": null
+    },
+    {
+        "channelId": "UC4ojoHQ-xKEYTuTDL_PTCcg",
+        "icon": "fa-straitjacket",
+        "realName": "Plana e Estacionária",
+        "message": null
+    },
+    {
+        "channelId": "UC53ZgNx7YmUQz8O7YfOaHxA",
+        "icon": "fa-straitjacket",
+        "realName": "Pablo",
+        "message": null
+    },
+    {
+        "channelId": "UC5NJFaSrBg2sFX-bTBUtrCg",
+        "icon": "fa-straitjacket",
+        "realName": "Juca",
+        "message": null
+    },
+    {
+        "channelId": "UC6H_pZIG7q9Xcg3BVzms1Pg",
+        "icon": "fa-solid fa-star fa-spin text-danger",
+        "realName": "Junior",
+        "message": null
+    },
+    {
+        "channelId": "UC6Wgo5A5GRKMJe4yyR7_0Kw",
+        "icon": "fa-straitjacket",
+        "realName": "Sniper",
+        "message": null
+    },
+    {
+        "channelId": "UC6n0KcLgh9yh8l-EKvUGzsA",
+        "icon": "fa-straitjacket",
+        "realName": null,
+        "message": null
+    },
+    {
+        "channelId": "UC735uDM6WRc_blo6pz4r-gw",
+        "icon": "fa-straitjacket",
+        "realName": "Pablo",
+        "message": null
+    },
+    {
+        "channelId": "UC7UckdkEgdNpLKPL_7zKq-w",
+        "icon": "fa-solid fa-star fa-spin text-primary",
+        "realName": "Sistemático",
+        "message": null
+    },
+    {
+        "channelId": "UC8XmBl7BoVXNeczrZJ1sKag",
+        "icon": "fa-bull",
+        "realName": "Robertoba",
+        "message": null
+    },
+    {
+        "channelId": "UCAIO2B1yomxWtBy1HsESv8g",
+        "icon": "fa-straitjacket",
+        "realName": "Irmão Jericó",
+        "message": null
+    },
+    {
+        "channelId": "UCAcy4nc3wi_F5GxzwPQysSQ",
+        "icon": "fa-solid fa-star text-warning",
+        "realName": "Razec",
+        "message": null
+    },
+    {
+        "channelId": "UCBDAMZwMOUPf-RU_BT96eXQ",
+        "icon": "fa-straitjacket",
+        "realName": "Cyclic",
+        "message": null
+    },
+    {
+        "channelId": "UCBI4fISlacIuMUA9j8sqhyw",
+        "icon": "fa-straitjacket",
+        "realName": "Alessandro Assis",
+        "message": null
+    },
+    {
+        "channelId": "UCBR9wBLYpWGWFf0PyEHbPXg",
+        "icon": "fa-solid fa-star  text-warning",
+        "realName": "Clar Backup",
+        "message": null
+    },
+    {
+        "channelId": "UCCHCjAcioXqaNpUjg3Mi-pQ",
+        "icon": "fa-solid fa-star text-warning",
+        "realName": "Edu Overmundo",
+        "message": null
+    },
+    {
+        "channelId": "UCDY8F-4I7LmDmAJem1CRgHg",
+        "icon": "fa-straitjacket",
+        "realName": "Romulo",
+        "message": null
+    },
+    {
+        "channelId": "UCDljOKJz8Yaqtn9vkZwLIfA",
+        "icon": "fa-straitjacket",
+        "realName": "C4D",
+        "message": null
+    },
+    {
+        "channelId": "UCE1wOvUkU1aKRzR6buGi8fg",
+        "icon": "fa-straitjacket",
+        "realName": "Tiago Nilton",
+        "message": null
+    },
+    {
+        "channelId": "UCESIdFC-yolbx8hJdarffgg",
+        "icon": "fa-solid fa-star text-warning",
+        "realName": "Lang",
+        "message": null
+    },
+    {
+        "channelId": "UCEUVRoNluEO7MH9k10s7-mg",
+        "icon": "fa-straitjacket",
+        "realName": "Z8 VERDADEIRO",
+        "message": null
+    },
+    {
+        "channelId": "UCEVv1l7ntSq2Exfddne3DJw",
+        "icon": "fa-straitjacket",
+        "realName": "Nature Sounds",
+        "message": null
+    },
+    {
+        "channelId": "UCEkeJbKzdqWFYI67KZ-o91Q",
+        "icon": "fa-straitjacket",
+        "realName": "Aquario",
+        "message": null
+    },
+    {
+        "channelId": "UCFKlch57n7pzKUzalzZe86w",
+        "icon": "fa-straitjacket",
+        "realName": null,
+        "message": null
+    },
+    {
+        "channelId": "UCGfXGfaFlUNQhw1lDqZR5vg",
+        "icon": "fa-straitjacket",
+        "realName": "Pablo",
+        "message": null
+    },
+    {
+        "channelId": "UCH4b8tWbfXHVuCS9WntRe0A",
+        "icon": "fa-straitjacket",
+        "realName": null,
+        "message": null
+    },
+    {
+        "channelId": "UCH71wcNfMr56ihO4bhslHZw",
+        "icon": "fa-solid fa-star text-warning",
+        "realName": "Lucas Emerik",
+        "message": null
+    },
+    {
+        "channelId": "UCHrPPkn0n8A7TNkbGB9_dRg",
+        "icon": "fa-straitjacket",
+        "realName": "D Science",
+        "message": null
+    },
+    {
+        "channelId": "UCI4ok1Z3G1lBLkPifeWWHrA",
+        "icon": "fa-straitjacket",
+        "realName": "TV Bolt",
+        "message": null
+    },
+    {
+        "channelId": "UCI8BhaeZduVJSyCBxDlgZvQ",
+        "icon": "fa-straitjacket",
+        "realName": "Isaque",
+        "message": null
+    },
+    {
+        "channelId": "UCJMBVClZuIQD9oXg4nh5bMA",
+        "icon": "fa-straitjacket",
+        "realName": "Walter José",
+        "message": null
+    },
+    {
+        "channelId": "UCJWtpK4RJ_uUxKHs8VhOqiA",
+        "icon": "fa-solid fa-star text-warning",
+        "realName": "Mansur",
+        "message": null
+    },
+    {
+        "channelId": "UCJd0w1-RM3vJ_aSKrLD6rNg",
+        "icon": "fa-solid fa-star text-primary",
+        "realName": "Clar",
+        "message": null
+    },
+    {
+        "channelId": "UCJi-5i2JW0GZTmCgkGEJ8JA",
+        "icon": "fa-straitjacket",
+        "realName": "Pedro Carvalho",
+        "message": null
+    },
+    {
+        "channelId": "UCKYaaG_TPh_LesniBTlwP6w",
+        "icon": "fa-straitjacket",
+        "realName": "Nelci",
+        "message": null
+    },
+    {
+        "channelId": "UCN9GTOT4f1J-wUiRK8aY9UA",
+        "icon": "fa-straitjacket",
+        "realName": "ZAMO",
+        "message": null
+    },
+    {
+        "channelId": "UCODSsUo9IZcMB_-nuiiuwlA",
+        "icon": "fa-solid fa-star text-primary",
+        "realName": "Ramon",
+        "message": null
+    },
+    {
+        "channelId": "UCOFPWd92UXIsBEawsmBasJw",
+        "icon": "fa-straitjacket",
+        "realName": null,
+        "message": null
+    },
+    {
+        "channelId": "UCPQNcicjqVZca6hEHoim21Q",
+        "icon": "fa-capsules text-danger",
+        "realName": "fakeflip",
+        "message": null
+    },
+    {
+        "channelId": "UCPetmOfUOUJTBk0HKz5u-Aw",
+        "icon": "fa-straitjacket",
+        "realName": "Biba Que Come Cimento",
+        "message": null
+    },
+    {
+        "channelId": "UCQJUlwxfgNrR_1YttO724Gg",
+        "icon": "fa-straitjacket",
+        "realName": "FakeFlip",
+        "message": null
+    },
+    {
+        "channelId": "UCQarzSHiYF5lKrC7TTFb7zg",
+        "icon": "fa-straitjacket",
+        "realName": "Pablo",
+        "message": null
+    },
+    {
+        "channelId": "UCRfcmtrdyaqrJSqj6jKDy3A",
+        "icon": "fa-straitjacket",
+        "realName": "Lucifer",
+        "message": null
+    },
+    {
+        "channelId": "UCTZAsA4soCELMgwlkGiV4qA",
+        "icon": "fa-straitjacket",
+        "realName": "Milton TP",
+        "message": null
+    },
+    {
+        "channelId": "UCUhEjgMOdqbMAvmJI0B1Q7g",
+        "icon": "fa-straitjacket",
+        "realName": null,
+        "message": null
+    },
+    {
+        "channelId": "UCV7jO6XH2jqvr8chyyc_-Ng",
+        "icon": "fa-straitjacket",
+        "realName": "Joey",
+        "message": null
+    },
+    {
+        "channelId": "UCV9686pLmbZ9fM241PxZiWQ",
+        "icon": "fa-straitjacket",
+        "realName": "Rafa Oliveira",
+        "message": null
+    },
+    {
+        "channelId": "UCVU5Dx0n7Zh6UOnQ6EM3yHw",
+        "icon": "fa-straitjacket",
+        "realName": "Isaias Carvalho",
+        "message": null
+    },
+    {
+        "channelId": "UCVnKCap2vok0GkSs-MuXTdg",
+        "icon": "fa-straitjacket",
+        "realName": "Pablo",
+        "message": null
+    },
+    {
+        "channelId": "UCWXWnh7FhOgGYsAtiVEtfLw",
+        "icon": "fa-straitjacket",
+        "realName": "Pablo",
+        "message": null
+    },
+    {
+        "channelId": "UCXHaWKWB19MCi_7LYC4bbAA",
+        "icon": "fa-capsules text-danger",
+        "realName": "fakeflip",
+        "message": null
+    },
+    {
+        "channelId": "UCY38wWbZUCUcDVNbA-URh_w",
+        "icon": "fa-straitjacket",
+        "realName": "PC master racer",
+        "message": null
+    },
+    {
+        "channelId": "UCY7n-H-jMr8fXoGFUZJ6Hhw",
+        "icon": "fa-straitjacket",
+        "realName": null,
+        "message": null
+    },
+    {
+        "channelId": "UCYzfuJ8e5rsmD4ahjVyWpMA",
+        "icon": "fa-straitjacket",
+        "realName": "Terra Plana Evidências",
+        "message": null
+    },
+    {
+        "channelId": "UCZIy18wMB5iUK55O59LNL2g",
+        "icon": "fa-straitjacket",
+        "realName": "Lucas Oliveira",
+        "message": null
+    },
+    {
+        "channelId": "UCZO9N2MArsschdkk2Jh8gdA",
+        "icon": "fa-straitjacket",
+        "realName": "Zard",
+        "message": null
+    },
+    {
+        "channelId": "UCaZmj92jBrblbm_CfLbhi4g",
+        "icon": "fa-straitjacket",
+        "realName": "Clarissa",
+        "message": null
+    },
+    {
+        "channelId": "UCb9qkvhBbOceUkMhyNdB5dA",
+        "icon": "fa-straitjacket",
+        "realName": "Serpente",
+        "message": null
+    },
+    {
+        "channelId": "UCbMcWuOucfj6MyUeq0_9O2Q",
+        "icon": "fa-straitjacket",
+        "realName": "Em Busca da Carreira Inexplicavel",
+        "message": null
+    },
+    {
+        "channelId": "UCbeLanMQON1HtAUDc-NiGig",
+        "icon": "fa-straitjacket",
+        "realName": "NElso",
+        "message": null
+    },
+    {
+        "channelId": "UCbvgdmikGHcGRyJM9bKUbyw",
+        "icon": "fa-solid fa-star text-warning",
+        "realName": "Tomas",
+        "message": null
+    },
+    {
+        "channelId": "UCcHpIhN0OchxGzosgYYRW0Q",
+        "icon": "fa-straitjacket",
+        "realName": "Leonardo B",
+        "message": null
+    },
+    {
+        "channelId": "UCcSOnx7akx3YjSEcA5zhUzg",
+        "icon": "fa-straitjacket",
+        "realName": "Binho",
+        "message": null
+    },
+    {
+        "channelId": "UCcxV-lNrN0BXByemy-opS9Q",
+        "icon": "fa-straitjacket",
+        "realName": "Pablo",
+        "message": null
+    },
+    {
+        "channelId": "UCdYxtVkV6jJqpXdVIylSOhA",
+        "icon": "fa-solid fa-star text-warning",
+        "realName": "Filosofia Ácida",
+        "message": null
+    },
+    {
+        "channelId": "UCdnzRBfhgjfcYoY0nRjgJKg",
+        "icon": "fa-straitjacket",
+        "realName": null,
+        "message": null
+    },
+    {
+        "channelId": "UCegtMjDtmFEXmHyU02AHy_A",
+        "icon": "fa-straitjacket",
+        "realName": "TerraPlanista Tatuado",
+        "message": null
+    },
+    {
+        "channelId": "UCf8gc9mUbesbUtIck0CdIUQ",
+        "icon": "fa-straitjacket",
+        "realName": "Rosemeire Nascimento",
+        "message": null
+    },
+    {
+        "channelId": "UCiToMAnIoN2XW9kHffaNlrA",
+        "icon": "fa-straitjacket",
+        "realName": "Pod Quest?",
+        "message": null
+    },
+    {
+        "channelId": "UCj9Dy_ko5j5Lg-N8MBQRp6w",
+        "icon": "fa-capsules text-danger",
+        "realName": "fakeflip",
+        "message": null
+    },
+    {
+        "channelId": "UCjFbqH2NG1w9_lyC4czJphg",
+        "icon": "fa-straitjacket",
+        "realName": null,
+        "message": null
+    },
+    {
+        "channelId": "UCjXP1PMuB4sUnK2BiffoYUw",
+        "icon": "fa-solid fa-star text-warning",
+        "realName": "Xavi San",
+        "message": null
+    },
+    {
+        "channelId": "UCjYpzcbu__5AEfc5UKlXCyA",
+        "icon": "fa-straitjacket",
+        "realName": "João Neto",
+        "message": null
+    },
+    {
+        "channelId": "UCjdrMMarYvVHeMWFyH9xheA",
+        "icon": "fa-solid fa-star text-warning",
+        "realName": "Brunão",
+        "message": null
+    },
+    {
+        "channelId": "UCjeezibK8QMXYalufkuuSXg",
+        "icon": "fa-solid fa-star text-warning",
+        "realName": "Rapina",
+        "message": null
+    },
+    {
+        "channelId": "UCk-hofk3tu0nKIhFy7iaw5w",
+        "icon": "fa-straitjacket",
+        "realName": "Cafuné",
+        "message": null
+    },
+    {
+        "channelId": "UCkIiV1m6810Fb3HqK_js8gw",
+        "icon": "fa-straitjacket",
+        "realName": "Pablo",
+        "message": null
+    },
+    {
+        "channelId": "UCkKrU1qxpffkUajWFZqA0OQ",
+        "icon": "fa-straitjacket",
+        "realName": null,
+        "message": null
+    },
+    {
+        "channelId": "UCkmCLKnMPI3C_LwD5FIMdVg",
+        "icon": "fa-straitjacket",
+        "realName": "Samuel",
+        "message": null
+    },
+    {
+        "channelId": "UClCoI0ybHaAIqxQbaMfQPDA",
+        "icon": "fa-straitjacket",
+        "realName": "Binho",
+        "message": null
+    },
+    {
+        "channelId": "UCljSD1_2mQN0iOSzJhYfwHg",
+        "icon": "fa-straitjacket",
+        "realName": "Maria",
+        "message": null
+    },
+    {
+        "channelId": "UCnqrlpagk3Y1WTpJDpnQftw",
+        "icon": "fa-straitjacket",
+        "realName": "Pablo",
+        "message": null
+    },
+    {
+        "channelId": "UCoD2nh6OCM4-2MJ6BFtvimQ",
+        "icon": "fa-straitjacket",
+        "realName": null,
+        "message": null
+    },
+    {
+        "channelId": "UCoPg9ZqSrAuL6tI090lSoKw",
+        "icon": "fa-straitjacket",
+        "realName": "Pablo",
+        "message": null
+    },
+    {
+        "channelId": "UCogLMYDSurC6eGEfi8dIY3Q",
+        "icon": "fa-solid fa-star text-warning",
+        "realName": "Dornelles",
+        "message": null
+    },
+    {
+        "channelId": "UCpXS1-Nv_sij2HzcX6qR33w",
+        "icon": "fa-straitjacket",
+        "realName": "Joey",
+        "message": null
+    },
+    {
+        "channelId": "UCpZtZCDNVCNteNtrqdUk84Q",
+        "icon": "fa-straitjacket",
+        "realName": "Valdo Costa",
+        "message": null
+    },
+    {
+        "channelId": "UCphHnn7SOqPyj39L6jFnU7A",
+        "icon": "fa-straitjacket",
+        "realName": "Globanoia",
+        "message": null
+    },
+    {
+        "channelId": "UCqBFFM2oa6-3Gn4Sa8hkV9A",
+        "icon": "fa-straitjacket",
+        "realName": "Gemaque",
+        "message": null
+    },
+    {
+        "channelId": "UCrYSlgLAfWbbJEhbhUVkzlg",
+        "icon": "fa-straitjacket",
+        "realName": "Edna Mesquita",
+        "message": null
+    },
+    {
+        "channelId": "UCuMP4HPJ_uhl8cXRzWwQV5Q",
+        "icon": "fa-straitjacket",
+        "realName": "FSDF",
+        "message": null
+    },
+    {
+        "channelId": "UCw74PU6U9eBq-Xn96SRPVXg",
+        "icon": "fa-straitjacket",
+        "realName": "Pablo",
+        "message": null
+    },
+    {
+        "channelId": "UCwul2u2VCPWn4J_1S2j4V1A",
+        "icon": "fa-straitjacket",
+        "realName": "Almanaque",
+        "message": null
+    },
+    {
+        "channelId": "UCxvTHwAcOwAx7o0hTX8f0qg",
+        "icon": "fa-capsules text-danger",
+        "realName": "fakeflip",
+        "message": null
+    },
+    {
+        "channelId": "UCxySpiqDxQICmVQ16TIC9UQ",
+        "icon": "fa-straitjacket",
+        "realName": "Leo Gustavo",
+        "message": null
+    },
+    {
+        "channelId": "UCzY0l1fr2pdNym6sPH1sGDw",
+        "icon": "fa-straitjacket",
+        "realName": "Rick TP",
+        "message": null
+    },
+    {
+        "channelId": "eKQRSEyZymPK_8qHHCTTQ",
+        "icon": "fa-straitjacket",
+        "realName": "Rosineide",
+        "message": null
+    }
 ]
