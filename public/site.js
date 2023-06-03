@@ -210,6 +210,10 @@ $("#btn-getlive").on('click', async () => {
     }
 });
 
+$('body').on('click', '#btn-show-donators', (e) => {
+    donatorModal.show();
+});
+
 $('body').on('click', 'td > img', (e) => {
     let imageUrl = $(e.currentTarget).data('pictureurl');
     let newImageUrl = imageUrl.replace(/s32/g, '').replace(/s64/g, '');

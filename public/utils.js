@@ -1,8 +1,12 @@
+let totalSuperChat = 0;
+let arraySuperChat = [];
 let jumentos = [];
 let dlVideos = [];
 const emojisManual = [];
 
 async function createChatTable(list, tableName) {
+    $('#div-superchat').empty();
+    $('#donator-modal-body').empty();
     $('#' + tableName).empty();
     $('#' + tableName).parent().find('thead').remove();
     $('#' + tableName).parent().append(`
@@ -22,6 +26,7 @@ async function createChatTable(list, tableName) {
         let e = normalizeObj(res);
         let publishedAt = moment(e.publishedAt).format('DD/MM/YYYY hh:mm:ss');
         let icon = '';
+        let superChat = '';
         let auxIcon = jumentos.map(m => m.channelId).indexOf(e.authorChannelId);
         let message = e.messageText; //replaceEmojis(e.messageText, emojisManual);
         let row = $(`<tr data-idusr="${e.authorChannelId}" data-name="${e.displayName}" data-msg="${message}"></tr>`);
@@ -44,23 +49,107 @@ async function createChatTable(list, tableName) {
         }
 
         if (e.isChatSponsor === 1) {
-            icon = '<i class="fa-solid fa-dollar-sign text-success"></i> '
+            icon = '<i class="fa-solid fa-dollar-sign text-success"></i> ';
         }
 
         if (auxIcon !== -1) {
             icon = `<i class="fa-solid ${jumentos[auxIcon].icon}"></i> `;
         }
+
+        if (e.superChat !== '') {
+            //totalSuperChat += e.superChatAmount;
+            arraySuperChat.push({
+                'currency': e.superChatCurrency,
+                'amount': e.superChatAmount,
+                'donator': e.displayName
+            });
+            superChat = `<span class="badge rounded-pill text-bg-primary">${e.superChat}</span>`;
+        }
+
         $(row).append(`
                 <td class="truncate-td ${e.isChatModerator === 1 || e.isChatOwner === 1 || e.isChatSponsor === 1 ? 'fw-bold' : 'fw-normal'}">
                     <img id="img${e.authorChannelId}" src="${e.profileImageUrl}" onError="this.onerror=null;this.src='./images/image-solid.svg';" data-pictureUrl="${e.profileImageUrl}" />
                     ${icon} 
                     <a target="_blank" href="${e.channelUrl}">${e.displayName}</a>
                 </td>`);
-        $(row).append(`<td class="text-break">${message}</td>`);
+        $(row).append(`<td class="text-break">${message} ${superChat}</td>`);
         $('#' + tableName).append(row)
     });
     showTooltip('.fa-clock');
     showTooltip('.fa-users');
+
+    const currencyTotals = {};
+    const donatorTotals = {};
+    if (arraySuperChat.length > 0) {
+
+        arraySuperChat.forEach((e) => {
+            if (currencyTotals[e.currency]) {
+                currencyTotals[e.currency] += e.amount;
+            } else {
+                currencyTotals[e.currency] = e.amount;
+            }
+        });
+
+        const currencySpans = Object.entries(currencyTotals).map(([currency, total]) => {
+            const formattedTotal = total.toLocaleString(undefined, {
+                style: 'currency',
+                currency: currency,
+                minimumFractionDigits: 2
+            });
+            return `<span class="badge rounded-pill text-bg-primary">${formattedTotal}</span> &nbsp;`;
+        });
+
+        arraySuperChat.forEach((e) => {
+            const key = e.donator;
+            const formattedAmount = e.amount.toLocaleString(undefined, {
+                style: 'currency',
+                currency: e.currency,
+                minimumFractionDigits: 2
+            });
+
+            if (donatorTotals[key]) {
+                donatorTotals[key] += e.amount;
+            } else {
+                donatorTotals[key] = e.amount;
+            }
+
+            //donatorTotals[key] = formattedAmount;
+        });
+
+        // for (const key in donatorTotals) {
+        //     donatorTotals[key] = donatorTotals[key].toLocaleString(undefined, {
+        //         style: 'currency',
+        //         currency: arraySuperChat.find((e) => e.donator === key).currency,
+        //         minimumFractionDigits: 2
+        //     });
+        // }
+
+        const listItems = Object.entries(donatorTotals).map(([donator, total]) => {
+            const formattedTotal = total.toLocaleString(undefined, {
+                style: 'currency',
+                currency: arraySuperChat.find((e) => e.donator === donator).currency,
+                minimumFractionDigits: 2
+            });
+
+            return `<li>${donator}: ${formattedTotal}</li>`;
+        });
+
+        const ul = `<ul>${listItems.join('')}</ul>`;
+
+        console.log(ul);
+
+
+        console.log(donatorTotals);
+
+        currencySpans.forEach((e) => {
+            $('#div-superchat').append(e)
+        });
+        $('#div-superchat').append(`<span class="badge rounded-pill text-bg-primary" id="btn-show-donators" style="cursor: pointer;">Doadores</span>`)
+        $('#donator-modal-body').append(ul)
+        $('#div-superchat').show();
+    } else {
+        $('#div-superchat').hide();
+    }
 }
 
 async function createVideoTable(pList, pTableName, pListName) {
@@ -135,6 +224,10 @@ function scrollToBottom(id) {
     var objDiv = document.getElementById(id);
     objDiv.scrollTop = objDiv.scrollHeight;
 }
+function showPopover(selector) {
+    const popoverTriggerList = document.querySelectorAll(selector)
+    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+}
 
 function showTooltip(selector) {
     const tooltipTriggerList = document.querySelectorAll(selector);
@@ -157,6 +250,7 @@ function translate(char) {
 }
 
 const warningModal = new bootstrap.Modal('#warningModal');
+const donatorModal = new bootstrap.Modal('#donator-modal');
 function showModal(pTitle, pText) {
     $('.modal-title').html(`<b>${pTitle}</b>`)
     $('.modal-body').html(pText)
@@ -195,6 +289,9 @@ function normalizeObj(obj) {
         messageText: newMessage,
         liveId: '',
         videoTime: obj.time_text,
+        superChat: obj.money ? obj.money.text : '',
+        superChatCurrency: obj.money ? obj.money.currency : '',
+        superChatAmount: obj.money ? obj.money.amount : ''
     }
     return newObj;
 }
