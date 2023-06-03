@@ -5,8 +5,7 @@ let dlVideos = [];
 const emojisManual = [];
 
 async function createChatTable(list, tableName) {
-    $('#div-superchat').empty();
-    $('#donator-modal-body').empty();
+
     $('#' + tableName).empty();
     $('#' + tableName).parent().find('thead').remove();
     $('#' + tableName).parent().append(`

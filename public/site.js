@@ -183,6 +183,8 @@ $('#btnShowFilter').on('click', () => {
 });
 
 $("#btn-getlive").on('click', async () => {
+    $('#div-superchat').empty();
+    $('#donator-modal-body').empty();
     const videoId = $('#ttb-liveid').val()
     try {
         $('#load-screen').show()
