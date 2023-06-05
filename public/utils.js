@@ -363,6 +363,19 @@ function getIcon(pAuthor) {
     return icon;
 }
 
+function extractVideoId(url) {
+    let videoId = null;
 
+    // Extrair o ID do vídeo de uma URL completa
+    if (url.includes('youtube.com') || url.includes('youtu.be')) {
+        const urlParams = new URLSearchParams(new URL(url).search);
+        videoId = urlParams.get('v');
+    }
 
+    // Se não foi possível extrair o ID a partir da URL, assume-se que o valor fornecido já é o ID do vídeo
+    if (!videoId) {
+        videoId = url;
+    }
 
+    return videoId;
+}
