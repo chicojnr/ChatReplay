@@ -1,10 +1,14 @@
 const express = require('express');
 const fs = require('fs');
+const ytcomments = require('./_app/youtube-comment');
 // const { spawn } = require('child_process');
 // const ytdl = require('./_app/ytdl');
 const axios = require('axios');
 const app = express();
 const port = 3338;
+
+
+
 
 // app.get('/downloadvideo', function (req, res) {
 //   ytdl.download('HtDX3hTulVg')
@@ -61,11 +65,19 @@ app.get('/getchat', async (req, res) => {
   }
 });
 
+app.get('/getcomment', async (req, res) => {
+  const comments = await ytcomments.getComments(req.query.videoId);
+  console.log(comments)
+  return res.send(comments);
+});
+
 app.get('/essentials', async (req, res) => {
   // const dlVideos = await fs.promises.readdir('./public/videos');
   // const videos = await JSON.parse(fs.readFileSync('./_app/_downloads/video_details.json'));
   const jumentos = await JSON.parse(fs.readFileSync('./_app/_essentials/jumentos.json'));
   const emojis = await JSON.parse(fs.readFileSync('./_app/_essentials/emojis.json'));
+
+  // console.log(comments)
   // let chatToImport = []
   // const fileNames = await fs.promises.readdir('./_app/_imports');
   // if (fileNames.length > 0) {
@@ -79,7 +91,7 @@ app.get('/essentials', async (req, res) => {
   const essentials = {
     //'videos': videos,
     'jumentos': jumentos,
-    'emojis': emojis,
+    'emojis': emojis
     //'chatToImport': chatToImport,
     //'dlVideos': dlVideos
   }

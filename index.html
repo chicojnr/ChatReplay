@@ -47,12 +47,12 @@
           type="button" role="tab" aria-controls="nav-channel" aria-selected="false">Videos
         </button> -->
         <button class="nav-link active" id="nav-chathistory-tab" data-bs-toggle="tab" data-bs-target="#nav-chathistory"
-          type="button" role="tab" aria-controls="nav-chathistory" aria-selected="false">Mensagens
+          type="button" role="tab" aria-controls="nav-chathistory" aria-selected="false">Chat Replay
         </button>
-        <!-- <button class="nav-link" id="nav-livechat-tab" data-bs-toggle="tab" data-bs-target="#nav-livechat" type="button"
-          role="tab" aria-controls="nav-livechat" aria-selected="true">Live Chat
+        <button class="nav-link" id="nav-comment-tab" data-bs-toggle="tab" data-bs-target="#nav-comment" type="button"
+          role="tab" aria-controls="nav-comment" aria-selected="true">Comentários
         </button>
-        <button class="nav-link" id="nav-python-tab" data-bs-toggle="tab" data-bs-target="#nav-python" type="button"
+        <!-- <button class="nav-link" id="nav-python-tab" data-bs-toggle="tab" data-bs-target="#nav-python" type="button"
           role="tab" aria-controls="nav-python" aria-selected="false">Utils
         </button> -->
       </div>
@@ -136,7 +136,7 @@
         </div>
       </div>
 
-      <!-- <div class="tab-pane fade" id="nav-python" role="tabpanel" aria-labelledby="nav-python-tab">
+      <div class="tab-pane fade" id="nav-comment" role="tabpanel" aria-labelledby="nav-comment-tab">
         <div class="container-sm text-center pt-2 pb-2">
           <div class="row g-1">
             <div class="col">
@@ -146,19 +146,18 @@
         <div class="row">
           <div class="col">
             <div class="container-sm">
-              <div class="table-responsive-sm" id="divTblMsgPy" style="overflow: auto; max-height: 80vh;">
+              <div class="table-responsive-sm" id="div-tblcomment" style="overflow: auto; max-height: 80vh;">
                 <table class="table table-sm table-hover align-middle bg-light" style="font-size:smaller">
-                  <tbody id="tblMessagesPy" style="font-size:smaller">
+                  <tbody id="tbl-comment" style="font-size:smaller">
                   </tbody>
                 </table>
-
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="tab-pane fade" id="nav-channel" role="tabpanel" aria-labelledby="nav-channel-tab">
+      <!--<div class="tab-pane fade" id="nav-channel" role="tabpanel" aria-labelledby="nav-channel-tab">
         <div class="container-sm pt-2 pb-2">
           <div class="row">
             <div class="col-8">
@@ -255,7 +254,7 @@
           var img = canvas.toDataURL();
           var link = document.createElement('a');
           link.href = img;
-          link.download = 'tabela.png';
+          link.download = `tabela_${extractVideoId(document.getElementById('ttb-liveid').value)}.png`;
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);

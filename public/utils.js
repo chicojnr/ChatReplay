@@ -149,6 +149,45 @@ async function createChatTable(list, tableName) {
     }
 }
 
+async function createCommentTable(pList, pTableName) {
+    $('#' + pTableName).empty();
+    $('#' + pTableName).parent().find('thead').remove();
+    $('#' + pTableName).parent().append(`
+    <thead>
+        <tr>
+            <th class="col-1 text-center d-none d-md-table-cell" style="width: 140px";><span>Data</span></th>
+            <th class="col-1 text-center d-md-none"><i class="fa-solid fa-clock"></i></th>
+            <th>Usuário</th>
+            <th>Comentário</th>
+            <!--<th class="text-center d-none d-md-table-cell"><span>Info.</span></th>
+            <th class="text-center d-md-none"><i class="fa-solid fa-info-circle"></i></th>-->
+        </tr>
+    </thead>
+    `);
+    if (pList.length > 0) {
+        pList.forEach((e, i) => {
+            let row = $(`<tr data-videoId="${e.id}" ></tr>`);
+            $(row).append(`
+                <td class="text-center">
+                    <span class="d-none d-md-block">${e.time}</span>
+                    <i title="${e.time}" class="d-md-none fa-regular fa-clock"></i>
+                </td>`);
+            $(row).append(`
+                <td class="truncate-td fw-normal">
+                    <a target="_blank" href="http://www.youtube.com/channel/${e.authorId}">${e.author}</a>
+                </td>`);
+            $(row).append(`
+                <td class="text-break">
+                    ${e.text}
+                </td>`);
+            $('#' + pTableName).append(row)
+        });
+    } else {
+        $('#' + pTableName).append(`<tr><td colspan='4'>Sem informações</td></tr>`);
+    };
+    showTooltip('.fa-clock');
+}
+
 async function createVideoTable(pList, pTableName, pListName) {
     pList.sort((a, b) => {
         if (a.author < b.author) return -1;

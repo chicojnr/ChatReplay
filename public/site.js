@@ -205,6 +205,9 @@ $("#btn-getlive").on('click', async () => {
             createList('lstAuthHistory', result, 'author');
             createChatTable(data, 'tblChatHistory')
         }
+        const responsecomments = await fetch(`/getcomment?videoId=${videoId}`);
+        const datacomments = await responsecomments.json();
+        createCommentTable(datacomments.comments, 'tbl-comment');
     } catch (err) {
         console.error(err);
     } finally {
