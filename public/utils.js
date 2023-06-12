@@ -288,14 +288,14 @@ function translate(char) {
 const warningModal = new bootstrap.Modal('#warningModal');
 const donatorModal = new bootstrap.Modal('#donator-modal');
 function showModal(pTitle, pText) {
-    $('.modal-title').html(`<b>${pTitle}</b>`)
-    $('.modal-body').html(pText)
+    $('#warningModal .modal-title').html(`<b>${pTitle}</b>`)
+    $('#warningModal .modal-body').html(pText)
     warningModal.show();
 }
 
 function showChannelImage(pTitle, pUrl) {
-    $('.modal-title').html(`<b>${pTitle}</b>`)
-    $('.modal-body').html(`<img style="width: 100%" src='${pUrl}' onError="this.onerror=null;this.src='./images/image-solid.svg';" />`)
+    $('#warningModal .modal-title').html(`<b>${pTitle}</b>`)
+    $('#warningModal .modal-body').html(`<img style="width: 100%" src='${pUrl}' onError="this.onerror=null;this.src='./images/image-solid.svg';" />`)
     warningModal.show();
 }
 

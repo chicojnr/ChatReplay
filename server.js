@@ -51,10 +51,11 @@ const port = 3338;
 
 app.get('/getchat', async (req, res) => {
   try {
+    //axios.get(`http://127.0.0.1:5000/?id=${req.query.videoId}`)
     axios.get(`https://chatreplay.onrender.com/?id=${req.query.videoId}`)
       .then(response => {
-        const captionData = response.data;
-        return res.send(captionData);
+        const data = response.data;
+        return res.send(data);
       })
       .catch(error => {
         console.error('Erro na solicitação:', error);

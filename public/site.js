@@ -183,13 +183,23 @@ $('#btnShowFilter').on('click', () => {
 });
 
 $("#btn-getlive").on('click', async () => {
+    $('#tblChatHistory').empty();
     $('#div-superchat').empty();
     $('#donator-modal-body').empty();
+    $('#div-videoinfo').hide();
     const videoId = extractVideoId($('#ttb-liveid').val());
     try {
         $('#load-screen').show()
         const response = await fetch(`/getchat?videoId=${videoId}`);
-        let data = await response.json();
+        let dataFull = await response.json();
+        let video = dataFull.video;
+        console.log(video.channel_title)
+        $('#div-channeltitle').text(video.channel_title);
+        $('#div-videotitle').text(video.title);
+        $('#div-publishdate').text(moment(video.publish_date).format('DD/MM/YYYY'));
+        $('#div-views').text(video.views);
+        $('#div-duration').text(moment.utc(video.duration * 1000).format('HH:mm:ss'));
+        let data = dataFull.chat;
         if (data.length > 0) {
             const result = data.reduce((acc, curr) => {
                 const { author } = curr;
@@ -205,6 +215,7 @@ $("#btn-getlive").on('click', async () => {
             createList('lstAuthHistory', result, 'author');
             createChatTable(data, 'tblChatHistory')
         }
+        $('#div-videoinfo').show();
         const responsecomments = await fetch(`/getcomment?videoId=${videoId}`);
         const datacomments = await responsecomments.json();
         createCommentTable(datacomments.comments, 'tbl-comment');
@@ -213,7 +224,7 @@ $("#btn-getlive").on('click', async () => {
     } finally {
         $('#load-screen').hide();
         loadEssentials();
-        $('#nav-channel-tab').click();
+        //$('#nav-channel-tab').click();
     }
 });
 
@@ -227,45 +238,45 @@ $('body').on('click', 'td > img', (e) => {
     showChannelImage($(e.currentTarget).parent().find('a').text(), newImageUrl);
 })
 
-$('body').on('click', '#iPlayVideo', function () {
-    const videoId = $(this).parent().parent().data('videoid');
-    const title = $(this).parent().prev().prev().text().trim() + ' - ' + $(this).parent().prev().text().trim();
-    showVideo(title, videoId);
-});
+// $('body').on('click', '#iPlayVideo', function () {
+//     const videoId = $(this).parent().parent().data('videoid');
+//     const title = $(this).parent().prev().prev().text().trim() + ' - ' + $(this).parent().prev().text().trim();
+//     showVideo(title, videoId);
+// });
 
-$('body').on('click', '#iPlayVideoMax', function () {
-    const videoId = $(this).parent().parent().data('videoid');
-    const title = $(this).parent().prev().prev().text().trim() + ' - ' + $(this).parent().prev().text().trim();
-    showVideo(title, videoId + '_maxres');
-});
+// $('body').on('click', '#iPlayVideoMax', function () {
+//     const videoId = $(this).parent().parent().data('videoid');
+//     const title = $(this).parent().prev().prev().text().trim() + ' - ' + $(this).parent().prev().text().trim();
+//     showVideo(title, videoId + '_maxres');
+// });
 
-$('body').on('click', '#iComments', function () {
-    const videoId = $(this).parent().parent().data('videoid');
-    $('#nav-chathistory-tab').click();
-    $('#checkbox-' + videoId).prop('checked', true).trigger('change');
-});
+// $('body').on('click', '#iComments', function () {
+//     const videoId = $(this).parent().parent().data('videoid');
+//     $('#nav-chathistory-tab').click();
+//     $('#checkbox-' + videoId).prop('checked', true).trigger('change');
+// });
 
-$('body').on('click', '#iDownload', async function () {
-    const videoId = $(this).parent().parent().data('videoid');
-    $(this).toggleClass('fa-spinner fa-spin');
-    await fetch(`/downloadvideo?videoId=${videoId}`, { method: 'GET' })
-        .then(response => response.json())
-        .then(r => {
-            $(this).toggleClass('fa-spinner fa-spin fa-check');
-        })
-});
+// $('body').on('click', '#iDownload', async function () {
+//     const videoId = $(this).parent().parent().data('videoid');
+//     $(this).toggleClass('fa-spinner fa-spin');
+//     await fetch(`/downloadvideo?videoId=${videoId}`, { method: 'GET' })
+//         .then(response => response.json())
+//         .then(r => {
+//             $(this).toggleClass('fa-spinner fa-spin fa-check');
+//         })
+// });
 
-$('body').on('click', '#iDownloadMaxRes', async function () {
-    const videoId = $(this).parent().parent().parent().data('videoid');
-    $(this).removeClass('fa-download');
-    $(this).addClass('fa-spinner fa-spin');
-    await fetch(`/downloadvideomaxres?videoId=${videoId}`, { method: 'GET' })
-        .then(response => response.json())
-        .then(r => {
-            $(this).removeClass('fa-spinner fa-spin');
-            $(this).addClass('fa-check');
-        })
-});
+// $('body').on('click', '#iDownloadMaxRes', async function () {
+//     const videoId = $(this).parent().parent().parent().data('videoid');
+//     $(this).removeClass('fa-download');
+//     $(this).addClass('fa-spinner fa-spin');
+//     await fetch(`/downloadvideomaxres?videoId=${videoId}`, { method: 'GET' })
+//         .then(response => response.json())
+//         .then(r => {
+//             $(this).removeClass('fa-spinner fa-spin');
+//             $(this).addClass('fa-check');
+//         })
+// });
 
 function clearCheckedAuthors(pList) {
     $('#' + pList).find('input').prop('checked', false);
