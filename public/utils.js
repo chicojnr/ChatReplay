@@ -16,8 +16,6 @@ async function createChatTable(list, tableName) {
             <th class="col-1 text-center d-md-none"><i class="fa-solid fa-clock"></i></th>
             <th>Usuário</th>
             <th>Mensagem</th>
-            <!--<th class="text-center d-none d-md-table-cell"><span>Info.</span></th>
-            <th class="text-center d-md-none"><i class="fa-solid fa-info-circle"></i></th>-->
         </tr>
     </thead>
     `);
@@ -111,17 +109,7 @@ async function createChatTable(list, tableName) {
             } else {
                 donatorTotals[key] = e.amount;
             }
-
-            //donatorTotals[key] = formattedAmount;
         });
-
-        // for (const key in donatorTotals) {
-        //     donatorTotals[key] = donatorTotals[key].toLocaleString(undefined, {
-        //         style: 'currency',
-        //         currency: arraySuperChat.find((e) => e.donator === key).currency,
-        //         minimumFractionDigits: 2
-        //     });
-        // }
 
         const listItems = Object.entries(donatorTotals).map(([donator, total]) => {
             const formattedTotal = total.toLocaleString(undefined, {
@@ -159,8 +147,6 @@ async function createCommentTable(pList, pTableName) {
             <th class="col-1 text-center d-md-none"><i class="fa-solid fa-clock"></i></th>
             <th>Usuário</th>
             <th>Comentário</th>
-            <!--<th class="text-center d-none d-md-table-cell"><span>Info.</span></th>
-            <th class="text-center d-md-none"><i class="fa-solid fa-info-circle"></i></th>-->
         </tr>
     </thead>
     `);
@@ -179,59 +165,6 @@ async function createCommentTable(pList, pTableName) {
             $(row).append(`
                 <td class="text-break">
                     ${e.text}
-                </td>`);
-            $('#' + pTableName).append(row)
-        });
-    } else {
-        $('#' + pTableName).append(`<tr><td colspan='4'>Sem informações</td></tr>`);
-    };
-    showTooltip('.fa-clock');
-}
-
-async function createVideoTable(pList, pTableName, pListName) {
-    pList.sort((a, b) => {
-        if (a.author < b.author) return -1;
-        if (a.author > b.author) return 1;
-        if (moment(a.published, 'MM/DD/YYYY') < moment(b.published, 'MM/DD/YYYY')) return -1;
-        if (moment(a.published, 'MM/DD/YYYY') > moment(b.published, 'MM/DD/YYYY')) return 1;
-        return 0;
-    });
-    if (pList.length > 0) {
-        pList.forEach((e, i) => {
-            if (!e.no_chat) {
-                $('#' + pListName).append(`
-                <li class="d-flex justify-content-between text-truncate">
-                    <div class="form-check">
-                        <input class="form-check-input form-check-input-sm" type="checkbox" id="checkbox-${e.id}" value="${e.id}">
-                        <label class="form-check-label" for="checkbox-${e.id}">${e.published} - <b>${e.author}</b> - ${e.title}</label>
-                    </div>
-                </li>
-            `);
-            }
-            let row = $(`<tr data-videoId="${e.id}" ></tr>`);
-            $(row).append(`
-                <td class="text-center">
-                    <span class="d-none d-md-block">${e.published}</span>
-                    <i title=${e.published} class="d-md-none fa-regular fa-clock"></i>
-                </td>`);
-            $(row).append(`
-                <td class="text-truncate">
-                    <a target="_blank" href="${e.channelUrl}"><b>${e.author}</b></a>
-                </td>`);
-            $(row).append(`
-                <td class="text-truncate">
-                    <a target="_blank" href="https://www.youtube.com/watch?v=${e.id}">${e.title}</a>
-                </td>`);
-            // <i class="fa fa-download" id="iDownload"></i>
-            // <i class="fa-solid fa-circle-play" id="iPlayVideo"></i>
-            const hasVideo = dlVideos.indexOf(`video_${e.id}.mp4`) >= 0 ? '<i class="fa-solid fa-circle-play text-success" id="iPlayVideo"></i>' : '<i class="fa fa-download" id="iDownload"></i>';
-            const hasVideoMR = dlVideos.indexOf(`video_${e.id}_maxres.mp4`) >= 0 ? '<i class="fa-solid fa-circle-play text-primary" id="iPlayVideoMax"></i>' : '<span class="fa-stack" style="width: 16px"><i class="fa fa-certificate fa-stack-1x text-warning"></i><i class="fa fa-download fa-stack-1x" id="iDownloadMaxRes"></i></span>';
-            const hasChat = e.no_chat ? '<i class="fa fa-comments" style="color: lightgray; cursor: default"></i>' : '<i class="fa fa-comments" id="iComments"></i>';
-            $(row).append(`
-                <td class="text-center">
-                     ${hasChat}
-                     ${hasVideo}
-                     ${hasVideoMR}
                 </td>`);
             $('#' + pTableName).append(row)
         });
@@ -260,10 +193,6 @@ function scrollToBottom(id) {
     var objDiv = document.getElementById(id);
     objDiv.scrollTop = objDiv.scrollHeight;
 }
-function showPopover(selector) {
-    const popoverTriggerList = document.querySelectorAll(selector)
-    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
-}
 
 function showTooltip(selector) {
     const tooltipTriggerList = document.querySelectorAll(selector);
@@ -274,16 +203,7 @@ function showTooltip(selector) {
     }));
 }
 
-function translate(char) {
-    let diff;
-    if (/[A-Z]/.test(char)) {
-        diff = "𝗔".codePointAt(0) - "A".codePointAt(0);
-    }
-    else {
-        diff = "𝗮".codePointAt(0) - "a".codePointAt(0);
-    }
-    return String.fromCodePoint(char.codePointAt(0) + diff);
-}
+
 
 const warningModal = new bootstrap.Modal('#warningModal');
 const donatorModal = new bootstrap.Modal('#donator-modal');
@@ -297,15 +217,6 @@ function showChannelImage(pTitle, pUrl) {
     $('#warningModal .modal-title').html(`<b>${pTitle}</b>`)
     $('#warningModal .modal-body').html(`<img style="width: 100%" src='${pUrl}' onError="this.onerror=null;this.src='./images/image-solid.svg';" />`)
     warningModal.show();
-}
-
-const mediaModal = new bootstrap.Modal('#mediaModal');
-function showVideo(pTitle, pSrc) {
-    $('.modal-title').html(`<b>${pTitle}</b>`)
-    $('.modal-body').html(`<video style="width: 100%" controls>
-                                <source src="/videos/video_${pSrc}.mp4" type="video/mp4">
-                          </video>`)
-    mediaModal.show();
 }
 
 function normalizeObj(obj) {
@@ -332,14 +243,7 @@ function normalizeObj(obj) {
     return newObj;
 }
 
-function loadImage(id, url) {
-    var img = new Image();
-    img.src = url;
-    img.onload = function () {
-        $(id).attr('src', url).show();
-        img = null;
-    };
-}
+
 
 function createList(pElement, pData, pType, pIncludeAll = 'N') {
     const element = $('#' + pElement);
@@ -364,7 +268,6 @@ function createList(pElement, pData, pType, pIncludeAll = 'N') {
             </li> `);
         });
     }
-    // form-check-inline
     if (pType.toUpperCase() === 'AUTHOR') {
         pData.forEach(e => {
             let icon = getIcon(e.author);
@@ -417,4 +320,24 @@ function extractVideoId(url) {
     }
 
     return videoId;
+}
+
+function loadImage(id, url) {
+    var img = new Image();
+    img.src = url;
+    img.onload = function () {
+        $(id).attr('src', url).show();
+        img = null;
+    };
+}
+
+function translate(char) {
+    let diff;
+    if (/[A-Z]/.test(char)) {
+        diff = "𝗔".codePointAt(0) - "A".codePointAt(0);
+    }
+    else {
+        diff = "𝗮".codePointAt(0) - "a".codePointAt(0);
+    }
+    return String.fromCodePoint(char.codePointAt(0) + diff);
 }

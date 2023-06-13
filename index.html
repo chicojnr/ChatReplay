@@ -126,26 +126,40 @@
           </div>
         </div>
         <div class="container-sm" id="div-videoinfo" style="display: none;">
-          <div class="row bg-light mx-1 rounded-top">
-            <div class="text-center text-bold" id="div-channeltitle" style="font-weight: 600;">
+          <div class="row bg-light mx-1 rounded-top d-xxl-none d-xl-none">
+            <div class="col-4 text-truncate fw-bold" id="div-channeltitlelg">
+            </div>
+            <div class="col-8 text-truncate fw-bold" id="div-videotitlelg">
             </div>
           </div>
           <div class="row bg-light mx-1 rounded-bottom" style="font-size: smaller;">
-            <div class="col-6 text-truncate">
-              <div style="font-weight: 700;">Título</div>
+            <div class="col text-truncate text-center d-none d-lg-block d-xl-block d-xxl-block">
+              <div class="fw-bold">Canal</div>
+              <div class="text-truncate" id="div-channeltitle"></div>
+            </div>
+            <div class="col-5 text-truncate text-center d-none d-lg-block d-xl-block d-xxl-block">
+              <div class="fw-bold">Título</div>
               <div class="text-truncate" id="div-videotitle"></div>
             </div>
-            <div class="col-2 text-center">
-              <div style="font-weight: 700;">Duração</div>
+            <div class="col text-center">
+              <div class=" fw-bold" >Duração</div>
               <div class="text-truncate" id="div-duration"></div>
             </div>
-            <div class="col-2 text-center">
-              <div style="font-weight: 700;">Data</div>
-              <div class="" id="div-publishdate"></div>
+            <div class="col text-center">
+              <div class=" fw-bold" >Data</div>
+              <div id="div-publishdate"></div>
             </div>
-            <div class="col-2 text-center">
-              <div style="font-weight: 700;">Views</div>
-              <div class=""  id="div-views"></div>
+            <div class="col text-center">
+              <div class=" fw-bold" >Views</div>
+              <div id="div-views"></div>
+            </div>
+            <div class="col text-center">
+              <div class=" fw-bold" >Mensagens</div>
+              <div id="div-msgcount"></div>
+            </div>
+            <div class="col text-center">
+              <div class=" fw-bold" >Usuários</div>
+              <div id="div-authorcount"></div>
             </div>
           </div>
         </div>
@@ -170,7 +184,7 @@
         <div class="row">
           <div class="col">
             <div class="container-sm">
-              <div class="table-responsive-sm" id="div-tblcomment" style="overflow: auto; max-height: 80vh;">
+              <div class="table-responsive-sm" id="div-tblcomment">
                 <table class="table table-sm table-hover align-middle bg-light" style="font-size:smaller">
                   <tbody id="tbl-comment" style="font-size:smaller">
                   </tbody>
@@ -253,7 +267,7 @@
     </div>
 
     <div class="modal fade" id="donator-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
+      <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="donator-modal-title">Doadores</h1>

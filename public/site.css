@@ -1,98 +1,3 @@
-/* Loader */
-/* #load-screen {
-    background: #333136 !important;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1001;
-    opacity: 0.8;
-    display: none;
-}
-
-.loader {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100px;
-    height: 40px;
-}
-
-.loader div {
-    font-family: Roboto;
-    font-weight: 900;
-    font-size: 34px;
-    color: white;
-    width: 10px;
-    height: 20px;
-     background: #3EA3DB ; 
-    background: transparent ;
-
-    position: absolute;
-    border-radius: 50%;
-}
-
-.c1 {
-    animation: animate 2s linear infinite;
-}
-
-.c2 {
-    animation: animate 2s linear infinite -0.4s;
-}
-
-.c3 {
-    animation: animate 2s linear infinite -0.8s;
-}
-
-.c4 {
-    animation: animate 2s linear infinite -1.2s;
-}
-
-.c5 {
-    animation: animate 2s linear infinite -1.6s;
-}
-
-@keyframes animate {
-    0% {
-        left: 100px;
-        top: 0;
-    }
-
-    80% {
-        left: 0;
-        top: 0;
-    }
-
-    85% {
-        left: 0;
-        top: -20px;
-        width: 20px;
-        height: 20px;
-    }
-
-    90% {
-        width: 40px;
-        height: 15px;
-    }
-
-    95% {
-        left: 100px;
-        top: -20px;
-        width: 20px;
-        height: 20px;
-    }
-
-    100% {
-        left: 100px;
-        top: 0;
-    }
-} */
-
-/* End Loader */
-
 /* width */
 ::-webkit-scrollbar {
     width: 6px;
@@ -220,9 +125,9 @@ td>img {
     background-color: rgb(85, 85, 85) !important;
 }
 
-#divChatHistory {
+#divChatHistory, #div-tblcomment {
     overflow: auto;
-    max-height: calc(75vh);
+    max-height: calc(70vh);
 }
 
 .btn {
@@ -242,7 +147,7 @@ select {
     padding: 4px;
 }
 
-ul {
+#lstAuthHistory {
     max-height: 200px;
     overflow: auto;
 }

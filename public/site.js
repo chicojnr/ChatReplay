@@ -193,14 +193,14 @@ $("#btn-getlive").on('click', async () => {
         const response = await fetch(`/getchat?videoId=${videoId}`);
         let dataFull = await response.json();
         let video = dataFull.video;
-        console.log(video.channel_title)
-        $('#div-channeltitle').text(video.channel_title);
-        $('#div-videotitle').text(video.title);
+        $('#div-channeltitle, #div-channeltitlelg').text(video.channel_title);
+        $('#div-videotitle, #div-videotitlelg').text(video.title);
         $('#div-publishdate').text(moment(video.publish_date).format('DD/MM/YYYY'));
         $('#div-views').text(video.views);
-        $('#div-duration').text(moment.utc(video.duration * 1000).format('HH:mm:ss'));
         let data = dataFull.chat;
+        $('#div-duration').text(moment.utc(video.duration * 1000).format('HH:mm:ss'));
         if (data.length > 0) {
+            $('#div-msgcount').text(data.length);
             const result = data.reduce((acc, curr) => {
                 const { author } = curr;
                 const existingAuthor = acc.find((a) => a.author.id === author.id);
@@ -212,6 +212,7 @@ $("#btn-getlive").on('click', async () => {
                 return acc;
             }, []);
             result.sort((a, b) => a.author.name.trim().localeCompare(b.author.name.trim()));
+            $('#div-authorcount').text(result.length);
             createList('lstAuthHistory', result, 'author');
             createChatTable(data, 'tblChatHistory')
         }

@@ -9,7 +9,7 @@ async function getComments(pVideoId) {
         // httpsAgent: agent
     }
     const response = await ytcm.getComments(payload);
-    console.log(response)
+    //console.log(response)
     return response;
 }
 module.exports = {
