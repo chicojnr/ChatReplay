@@ -51,8 +51,8 @@ const port = 3338;
 
 app.get('/getchat', async (req, res) => {
   try {
-    //axios.get(`https://chatreplay.onrender.com/?id=${req.query.videoId}`)
-    axios.get(`http://127.0.0.1:5000/?id=${req.query.videoId}`)
+    //axios.get(`http://127.0.0.1:5000/?id=${req.query.videoId}`)
+    axios.get(`https://chatreplay.onrender.com/?id=${req.query.videoId}`)
       .then(response => {
         const data = response.data;
         return res.send(data);
