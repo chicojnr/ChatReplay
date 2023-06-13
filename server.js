@@ -68,7 +68,6 @@ app.get('/getchat', async (req, res) => {
 
 app.get('/getcomment', async (req, res) => {
   const comments = await ytcomments.getComments(req.query.videoId);
-  console.log(comments)
   return res.send(comments);
 });
 
