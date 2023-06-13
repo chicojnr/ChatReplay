@@ -187,6 +187,9 @@ $("#btn-getlive").on('click', async () => {
         $('#load-screen').show()
         const response = await fetch(`/getchat?videoId=${videoId}`);
         let dataFull = await response.json();
+        if (dataFull.error) {
+            throw new Error('Ocorreu um erro no serviço, tente novamente em 10 minutos.')
+        }
         let video = dataFull.video;
         $('#div-channeltitle, #div-channeltitlelg').text(video.channel_title);
         $('#div-videotitle, #div-videotitlelg').text(video.title);
@@ -217,6 +220,7 @@ $("#btn-getlive").on('click', async () => {
         createCommentTable(datacomments.comments, 'tbl-comment');
     } catch (err) {
         console.error(err);
+        showModal('Erro', err)
     } finally {
         $('#load-screen').hide();
         loadEssentials();

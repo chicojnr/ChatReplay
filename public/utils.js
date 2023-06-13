@@ -126,8 +126,8 @@ async function createChatTable(list, tableName) {
         currencySpans.forEach((e) => {
             $('#div-superchat').append(e)
         });
-        $('#div-superchat').append(`<span class="badge rounded-pill text-bg-danger" id="btn-show-donators" style="cursor: pointer;">Doadores</span>`)
-        $('#donator-modal-body').append(ul)
+        $('#div-superchat').append(`<span class="badge rounded-pill text-bg-danger" id="btn-show-donators" style="cursor: pointer;">${arraySuperChat.length} Doações</span>`);
+        $('#donator-modal-body').append(ul);
         $('#div-superchat').show();
         donatorTotals = {};
         currencyTotals = {};
