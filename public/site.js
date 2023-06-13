@@ -34,14 +34,9 @@ $('body').on('change', '#lstAuthHistory > li', async function () {
                     if ($(this).attr('data-idusr') === e) {
                         $(this).show();
                     }
-                    // Código a ser executado para cada linha
-                    // Você pode acessar a linha atual usando $(this)
-                    // Por exemplo, $(this).text() para obter o texto da linha
                 });
             });
         }
-        // console.log('Lives', selectedValues)
-        console.log('Authors', selectedValuesAuthors)
         // let dataBase = [];
         // await Promise.all(selectedValues.map(async (id) => {
         //     const chatResponse = await fetch(`/chatbyliveid?liveId=${id}`);
@@ -196,11 +191,11 @@ $("#btn-getlive").on('click', async () => {
         $('#div-channeltitle, #div-channeltitlelg').text(video.channel_title);
         $('#div-videotitle, #div-videotitlelg').text(video.title);
         $('#div-publishdate').text(moment(video.publish_date).format('DD/MM/YYYY'));
-        $('#div-views').text(video.views);
+        $('#div-views').text(video.views.toLocaleString());
         let data = dataFull.chat;
         $('#div-duration').text(moment.utc(video.duration * 1000).format('HH:mm:ss'));
         if (data.length > 0) {
-            $('#div-msgcount').text(data.length);
+            $('#div-msgcount').text(data.length.toLocaleString());
             const result = data.reduce((acc, curr) => {
                 const { author } = curr;
                 const existingAuthor = acc.find((a) => a.author.id === author.id);
