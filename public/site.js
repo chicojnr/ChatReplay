@@ -211,7 +211,7 @@ $("#btn-getlive").on('click', async () => {
                 return acc;
             }, []);
             result.sort((a, b) => a.author.name.trim().localeCompare(b.author.name.trim()));
-            $('#div-authorcount').text(result.length);
+            $('#div-authorcount').text(result.length.toLocaleString());
             createList('lstAuthHistory', result, 'author');
             createChatTable(data, 'tblChatHistory')
         }
