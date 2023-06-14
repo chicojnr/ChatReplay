@@ -188,7 +188,8 @@ $("#btn-getlive").on('click', async () => {
         const response = await fetch(`/getchat?videoId=${videoId}`);
         let dataFull = await response.json();
         if (dataFull.error) {
-            throw new Error('Ocorreu um erro no serviço, tente novamente em 10 minutos.')
+            dataFull.error.message = 'Ocorreu um erro no serviço, tente novamente em 10 minutos.'
+            throw new Error(dataFull.error);
         }
         let video = dataFull.video;
         $('#div-channeltitle, #div-channeltitlelg').text(video.channel_title);
