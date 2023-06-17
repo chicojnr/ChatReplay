@@ -2,6 +2,85 @@ loadEssentials();
 let selectedValues = [];
 let selectedValuesAuthors = [];
 
+function exportTableToExcel() {
+    var downloadLink;
+    var dataType = 'application/vnd.ms-excel';
+    var tableSelect = document.getElementById('tblHistory');
+
+    // Clone the table element to preserve the original
+    var clonedTable = tableSelect.cloneNode(true);
+
+    // Remove all <img> elements from the cloned table
+    var images = clonedTable.getElementsByTagName('img');
+    for (var i = images.length - 1; i >= 0; i--) {
+        images[i].parentNode.removeChild(images[i]);
+    }
+
+    // Get the HTML content of the modified table
+    var tableHTML = clonedTable.outerHTML.replace(/ /g, '%20');
+
+    // Specify file name
+    var filename = undefined;
+    filename = filename ? filename + '.xls' : 'excel_data.xls';
+
+    // Create download link element
+    downloadLink = document.createElement("a");
+    document.body.appendChild(downloadLink);
+
+    if (navigator.msSaveOrOpenBlob) {
+        var blob = new Blob(['\ufeff', tableHTML], {
+            type: dataType
+        });
+        navigator.msSaveOrOpenBlob(blob, filename);
+    } else {
+        // Create a link to the file
+        downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+        // Setting the file name
+        downloadLink.download = filename;
+
+        // Triggering the function
+        downloadLink.click();
+    }
+}
+
+
+// function exportTableToExcel() {
+//     var downloadLink;
+//     var dataType = 'application/vnd.ms-excel';
+//     var tableSelect = document.getElementById('tblHistory');
+//     var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+//     // Specify file name
+//     var filename = undefined;
+//     filename = filename ? filename + '.csv' : 'excel_data.csv';
+
+//     // Create download link element
+//     downloadLink = document.createElement("a");
+
+//     document.body.appendChild(downloadLink);
+
+//     if (navigator.msSaveOrOpenBlob) {
+//         var blob = new Blob(['\ufeff', tableHTML], {
+//             type: dataType
+//         });
+//         navigator.msSaveOrOpenBlob(blob, filename);
+//     } else {
+//         // Create a link to the file
+//         downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+//         // Setting the file name
+//         downloadLink.download = filename;
+
+//         //triggering the function
+//         downloadLink.click();
+//     }
+// }
+
+$('#btnCaptureTableXLS').on('click', () => {
+    exportTableToExcel();
+});
+
 $('body').on('change', '#lstAuthHistory > li', async function () {
     try {
         $('#load-screen').show();

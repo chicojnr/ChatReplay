@@ -35,7 +35,7 @@ async function createChatTable(list, tableName) {
                 </td>`);
         $(row).append(`
                 <td class="text-center d-none d-md-table-cell">
-                    <span>${e.videoTime}</span>
+                    <span><a target="_blank" href="https://youtu.be/ptFLiK_EX3Q?t=${e.videoTimeSeconds > 0 ? Math.round(e.videoTimeSeconds) + 1 : 0}">${e.videoTime}</a></span>
                 </td>`);
         if (e.isChatOwner === 1) {
             icon = '<i class="fa-solid fa-crown text-warning"></i> ';
@@ -155,7 +155,7 @@ async function createCommentTable(pList, pTableName) {
             let row = $(`<tr data-videoId="${e.id}" ></tr>`);
             $(row).append(`
                 <td class="text-center">
-                    <span class="d-none d-md-block">${e.time}</span>
+                    <span class="d-none d-md-block"><a target="_blank">${e.time}</span>
                     <i title="${e.time}" class="d-md-none fa-regular fa-clock"></i>
                 </td>`);
             $(row).append(`
@@ -236,6 +236,7 @@ function normalizeObj(obj) {
         messageText: newMessage,
         liveId: '',
         videoTime: obj.time_text,
+        videoTimeSeconds: obj.time_in_seconds,
         superChat: obj.money ? obj.money.text : '',
         superChatCurrency: obj.money ? obj.money.currency : '',
         superChatAmount: obj.money ? obj.money.amount : ''
