@@ -292,7 +292,7 @@ $("#btn-getlive").on('click', async () => {
             result.sort((a, b) => a.author.name.trim().localeCompare(b.author.name.trim()));
             $('#div-authorcount').text(result.length.toLocaleString());
             createList('lstAuthHistory', result, 'author');
-            createChatTable(data, 'tblChatHistory')
+            createChatTable(data, 'tblChatHistory', videoId)
         }
         $('#div-videoinfo').show();
         const responsecomments = await fetch(`/getcomment?videoId=${videoId}`);

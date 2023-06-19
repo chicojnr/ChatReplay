@@ -4,7 +4,7 @@ let jumentos = [];
 let dlVideos = [];
 const emojisManual = [];
 
-async function createChatTable(list, tableName) {
+async function createChatTable(list, tableName, pVideoId) {
 
     $('#' + tableName).empty();
     $('#' + tableName).parent().find('thead').remove();
@@ -35,7 +35,7 @@ async function createChatTable(list, tableName) {
                 </td>`);
         $(row).append(`
                 <td class="text-center d-none d-md-table-cell">
-                    <span><a target="_blank" href="https://youtu.be/ptFLiK_EX3Q?t=${e.videoTimeSeconds > 0 ? Math.round(e.videoTimeSeconds) + 1 : 0}">${e.videoTime}</a></span>
+                    <span><a target="_blank" href="https://youtu.be/${pVideoId}?t=${e.videoTimeSeconds > 0 ? Math.round(e.videoTimeSeconds) + 1 : 0}">${e.videoTime}</a></span>
                 </td>`);
         if (e.isChatOwner === 1) {
             icon = '<i class="fa-solid fa-crown text-warning"></i> ';
