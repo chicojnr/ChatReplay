@@ -2,14 +2,63 @@ const express = require('express');
 const fs = require('fs');
 const ytcomments = require('./_app/youtube-comment');
 const axios = require('axios');
+const jwt = require('jsonwebtoken');
+const cookieParser = require('cookie-parser');
 const app = express();
 const port = 3338;
 
+app.use(express.static('public'));
+app.use(express.json());
+app.use(cookieParser());
+
+app.get('/', async (req, res) => {
+  const token = req.cookies.token;
+
+  if (!token) {
+    return res.sendFile(__dirname + '/login.html'); // Redireciona para a página de login se o token não estiver presente nos cookies
+  }
+
+  jwt.verify(token, 'randomstring', (err, decoded) => {
+    if (err) {
+      console.error('Erro na verificação do JWT:', err);
+      return res.sendFile(__dirname + '/login.html'); // Redireciona para a página de login se o token for inválido
+    }
+
+    console.log('Autenticado!');
+    res.sendFile(__dirname + '/index.html'); // Renderiza a página index.html se o token for válido
+  });
+});
+
+app.post('/auth', (req, res) => {
+  const { email, password } = req.body;
+  axios.post('http://localhost:3080/api/users/login', {
+    email: email,
+    password: password
+  })
+    .then(response => {
+      const data = response.data;
+      const jwtToken = data; // Recebe o JWT da resposta da API
+
+      // Define o cookie "token" com o valor do JWT
+      res.cookie('token', jwtToken, { httpOnly: true });
+
+      jwt.verify(jwtToken, 'randomstring', (err, decoded) => {
+        if (err) {
+          console.error('Erro na verificação do JWT:', err);
+          return res.status(500).json({ error: 'Erro na autenticação' });
+        }
+        console.log(email + ' Autenticado!');
+        res.json({ jwt: jwtToken });
+      });
+    })
+    .catch(error => {
+      console.error('Erro:', error);
+      res.status(500).json({ error: 'Erro na requisição de login' });
+    });
+});
+
 app.get('/getchat', async (req, res) => {
   try {
-    
-    //axios.get(`http://127.0.0.1:5000/?id=${req.query.videoId}`)
-    //axios.get(`https://ydjvesacqe.execute-api.us-west-2.amazonaws.com/?id=${req.query.videoId}`)
     axios.get(`https://chatreplay.onrender.com/?id=${req.query.videoId}`)
       .then(response => {
         const data = response.data;
@@ -17,50 +66,43 @@ app.get('/getchat', async (req, res) => {
       })
       .catch(error => {
         console.error('Erro na solicitação:', error);
+        res.status(500).send('Erro na solicitação');
       });
-    const result = ''
   } catch (err) {
     console.error(err);
+    res.status(500).send('Erro interno do servidor');
   }
 });
 
 app.get('/getcomment', async (req, res) => {
-  const comments = await ytcomments.getComments(req.query.videoId);
-  return res.send(comments);
+  try {
+    const comments = await ytcomments.getComments(req.query.videoId);
+    return res.send(comments);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Erro interno do servidor');
+  }
 });
 
 app.get('/essentials', async (req, res) => {
-  // const dlVideos = await fs.promises.readdir('./public/videos');
-  // const videos = await JSON.parse(fs.readFileSync('./_app/_downloads/video_details.json'));
-  const jumentos = await JSON.parse(fs.readFileSync('./_app/_essentials/jumentos.json'));
-  const emojis = await JSON.parse(fs.readFileSync('./_app/_essentials/emojis.json'));
-
-  // console.log(comments)
-  // let chatToImport = []
-  // const fileNames = await fs.promises.readdir('./_app/_imports');
-  // if (fileNames.length > 0) {
-  //   fileNames.forEach((e) => {
-  //     chatToImport.push({
-  //       'value': e,
-  //       'text': e
-  //     });
-  //   })
-  // }
-  const essentials = {
-    //'videos': videos,
-    'jumentos': jumentos,
-    'emojis': emojis
-    //'chatToImport': chatToImport,
-    //'dlVideos': dlVideos
+  try {
+    const jumentos = await JSON.parse(fs.readFileSync('./_app/_essentials/jumentos.json'));
+    const emojis = await JSON.parse(fs.readFileSync('./_app/_essentials/emojis.json'));
+    const essentials = {
+      'jumentos': jumentos,
+      'emojis': emojis
+    }
+    res.send(essentials);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Erro interno do servidor');
   }
-  res.send(essentials)
-})
+});
 
-app.get('/', async (req, res) => {
-  res.sendFile(__dirname + '/index.html');
-})
 
-app.use(express.static('public'));
+
+
+
 app.use((req, res) => {
   res.status(404).send('Página não encontrada.');
 });

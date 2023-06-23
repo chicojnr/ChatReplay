@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Youtube Chat Replay | Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/login.css">
+    <script src="https://kit.fontawesome.com/585fda3aab.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="login-box">
+        <h2>Chat Replay</h2>
+
+        <form id="login-form">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <i class="fa-solid fa-user"></i>
+                <input type="email" id="email" placeholder="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" id="password" placeholder="Your password" required>
+            </div>
+        </form>
+        <div>
+            <button class="btn" id="btn-submit">Log In</button>
+        </div>
+    </div>
+    <script>
+        const loginButton = document.querySelector('#btn-submit');
+
+        loginButton.addEventListener('click', async () => {
+            const email = document.querySelector('#email').value;
+            const password = document.querySelector('#password').value;
+
+            try {
+                const response = await axios.post('/auth', { email, password });
+
+                // Redirecionar para a página inicial ou realizar outras ações necessárias
+                window.location.href = '/';
+            } catch (error) {
+                console.error('Erro:', error);
+                // Manipule o erro de autenticação
+            }
+        });
+    </script>
+</body>
+
+</html>
