@@ -31,7 +31,7 @@ app.get('/', async (req, res) => {
 
 app.post('/auth', (req, res) => {
   const { email, password } = req.body;
-  axios.post('http://localhost:3080/api/users/login', {
+  axios.post('https://jwtlogin.onrender.com/api/users/login', {
     email: email,
     password: password
   })
