@@ -16,6 +16,19 @@ cron.schedule('*/14 * * * *', () => {
       console.log('Server is down');
       // Faça o que desejar em caso de erro (servidor inacessível) aqui
     });
+
+    axios.post('https://jwtlogin.onrender.com/api/users/login', {
+      email: 'email',
+      password: 'password'
+    })
+      .then(response => {
+        console.log('Login Server is up and running');
+        // Faça o que desejar com a resposta do servidor aqui
+      })
+      .catch(error => {
+        console.log('Login Server is down');
+        // Faça o que desejar em caso de erro (servidor inacessível) aqui
+      });
 });
 
 const app = express();
