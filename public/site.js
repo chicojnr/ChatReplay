@@ -44,39 +44,6 @@ function exportTableToExcel() {
     }
 }
 
-
-// function exportTableToExcel() {
-//     var downloadLink;
-//     var dataType = 'application/vnd.ms-excel';
-//     var tableSelect = document.getElementById('tblHistory');
-//     var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
-
-//     // Specify file name
-//     var filename = undefined;
-//     filename = filename ? filename + '.csv' : 'excel_data.csv';
-
-//     // Create download link element
-//     downloadLink = document.createElement("a");
-
-//     document.body.appendChild(downloadLink);
-
-//     if (navigator.msSaveOrOpenBlob) {
-//         var blob = new Blob(['\ufeff', tableHTML], {
-//             type: dataType
-//         });
-//         navigator.msSaveOrOpenBlob(blob, filename);
-//     } else {
-//         // Create a link to the file
-//         downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
-
-//         // Setting the file name
-//         downloadLink.download = filename;
-
-//         //triggering the function
-//         downloadLink.click();
-//     }
-// }
-
 $('#btnCaptureTableXLS').on('click', () => {
     exportTableToExcel();
 });
@@ -116,32 +83,6 @@ $('body').on('change', '#lstAuthHistory > li', async function () {
                 });
             });
         }
-        // let dataBase = [];
-        // await Promise.all(selectedValues.map(async (id) => {
-        //     const chatResponse = await fetch(`/chatbyliveid?liveId=${id}`);
-        //     const chatData = await chatResponse.json();
-        //     if (chatData.length > 0) {
-        //         chatData.forEach(async (e) => {
-        //             dataBase.push(e);
-        //         })
-        //     };
-        // }));
-        // dataBase.sort((a, b) => a.timestamp - b.timestamp);
-        // if (all !== 'T') {
-        //     let chat = [];
-        //     selectedValuesAuthors.map((e) => {
-        //         const chatFiltered = dataBase.filter(function (i) {
-        //             return i.author.id === e;
-        //         });
-        //         chatFiltered.forEach((j) => {
-        //             chat.push(j);
-        //         });
-        //     })
-        //     chat.sort((a, b) => a.timestamp - b.timestamp);
-        //     createChatTable(chat, "tblChatHistory")
-        // } else {
-        //     createChatTable(dataBase, "tblChatHistory")
-        // }
     } catch (err) {
         console.error(err.message);
     } finally {
@@ -218,8 +159,7 @@ $('body').on('change', '#lstChatHistory > li', async function () {
                             ${icon}
                             <label class="form-check-label text-truncate" for="checkbox-${e.author.id}">(${e.count}) ${e.author.name} ${realName}</label>
                         </div>
-                    </li>
-                `);
+                    </li>`);
                 });
             }
         }
@@ -292,6 +232,7 @@ $("#btn-getlive").on('click', async () => {
             result.sort((a, b) => a.author.name.trim().localeCompare(b.author.name.trim()));
             $('#div-authorcount').text(result.length.toLocaleString());
             createList('lstAuthHistory', result, 'author');
+            //createDivSuperchat();
             createChatTable(data, 'tblChatHistory', videoId)
         }
         $('#div-videoinfo').show();
@@ -304,7 +245,6 @@ $("#btn-getlive").on('click', async () => {
     } finally {
         $('#load-screen').hide();
         loadEssentials();
-        //$('#nav-channel-tab').click();
     }
 });
 
@@ -317,46 +257,6 @@ $('body').on('click', 'td > img', (e) => {
     let newImageUrl = imageUrl.replace(/s32/g, '').replace(/s64/g, '');
     showChannelImage($(e.currentTarget).parent().find('a').text(), newImageUrl);
 })
-
-// $('body').on('click', '#iPlayVideo', function () {
-//     const videoId = $(this).parent().parent().data('videoid');
-//     const title = $(this).parent().prev().prev().text().trim() + ' - ' + $(this).parent().prev().text().trim();
-//     showVideo(title, videoId);
-// });
-
-// $('body').on('click', '#iPlayVideoMax', function () {
-//     const videoId = $(this).parent().parent().data('videoid');
-//     const title = $(this).parent().prev().prev().text().trim() + ' - ' + $(this).parent().prev().text().trim();
-//     showVideo(title, videoId + '_maxres');
-// });
-
-// $('body').on('click', '#iComments', function () {
-//     const videoId = $(this).parent().parent().data('videoid');
-//     $('#nav-chathistory-tab').click();
-//     $('#checkbox-' + videoId).prop('checked', true).trigger('change');
-// });
-
-// $('body').on('click', '#iDownload', async function () {
-//     const videoId = $(this).parent().parent().data('videoid');
-//     $(this).toggleClass('fa-spinner fa-spin');
-//     await fetch(`/downloadvideo?videoId=${videoId}`, { method: 'GET' })
-//         .then(response => response.json())
-//         .then(r => {
-//             $(this).toggleClass('fa-spinner fa-spin fa-check');
-//         })
-// });
-
-// $('body').on('click', '#iDownloadMaxRes', async function () {
-//     const videoId = $(this).parent().parent().parent().data('videoid');
-//     $(this).removeClass('fa-download');
-//     $(this).addClass('fa-spinner fa-spin');
-//     await fetch(`/downloadvideomaxres?videoId=${videoId}`, { method: 'GET' })
-//         .then(response => response.json())
-//         .then(r => {
-//             $(this).removeClass('fa-spinner fa-spin');
-//             $(this).addClass('fa-check');
-//         })
-// });
 
 function clearCheckedAuthors(pList) {
     $('#' + pList).find('input').prop('checked', false);
@@ -374,9 +274,6 @@ async function loadEssentials() {
         const data = await reponse.json();
         jumentos = data.jumentos;
         emojis = data.emojis;
-        // dlVideos = data.dlVideos;
-        // const videosData = data.videos;
-        // createVideoTable(videosData, 'tblVideos', 'lstChatHistory')
     } catch (err) {
         console.error(err.message);
         showModal('Erro', err.message);

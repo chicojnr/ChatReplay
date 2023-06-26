@@ -4,6 +4,20 @@ const ytcomments = require('./_app/youtube-comment');
 const axios = require('axios');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
+var cron = require('node-cron');
+
+cron.schedule('*/14 * * * *', () => {
+  axios.get('https://chatreplayviewer.onrender.com/')
+    .then(response => {
+      console.log('Server is up and running');
+      // Faça o que desejar com a resposta do servidor aqui
+    })
+    .catch(error => {
+      console.log('Server is down');
+      // Faça o que desejar em caso de erro (servidor inacessível) aqui
+    });
+});
+
 const app = express();
 const port = 3338;
 
@@ -38,10 +52,7 @@ app.post('/auth', (req, res) => {
     .then(response => {
       const data = response.data;
       const jwtToken = data; // Recebe o JWT da resposta da API
-
-      // Define o cookie "token" com o valor do JWT
       res.cookie('token', jwtToken, { httpOnly: true });
-
       jwt.verify(jwtToken, 'randomstring', (err, decoded) => {
         if (err) {
           console.error('Erro na verificação do JWT:', err);
@@ -98,10 +109,6 @@ app.get('/essentials', async (req, res) => {
     res.status(500).send('Erro interno do servidor');
   }
 });
-
-
-
-
 
 app.use((req, res) => {
   res.status(404).send('Página não encontrada.');

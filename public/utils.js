@@ -61,6 +61,7 @@ async function createChatTable(list, tableName, pVideoId) {
                 'donator': e.displayName
             });
             superChat = `<span class="badge rounded-pill text-bg-primary">${e.superChat}</span>`;
+            console.log(arraySuperChat)
         }
 
         $(row).append(`
@@ -136,6 +137,70 @@ async function createChatTable(list, tableName, pVideoId) {
         $('#div-superchat').hide();
     }
 }
+
+// async function createDivSuperchat() {
+//     $('#div-superchat').show();
+//     let currencyTotals = {};
+//     let donatorTotals = {};
+//     console.log(arraySuperChat)
+//     if (arraySuperChat.length > 0) {
+//         arraySuperChat.forEach((e) => {
+//             if (currencyTotals[e.currency]) {
+//                 currencyTotals[e.currency] += e.amount;
+//             } else {
+//                 currencyTotals[e.currency] = e.amount;
+//             }
+//         });
+
+//         const currencySpans = Object.entries(currencyTotals).map(([currency, total]) => {
+//             const formattedTotal = total.toLocaleString(undefined, {
+//                 style: 'currency',
+//                 currency: currency,
+//                 minimumFractionDigits: 2
+//             });
+//             return `<span class="badge rounded-pill text-bg-primary">${formattedTotal}</span> &nbsp;`;
+//         });
+
+//         arraySuperChat.forEach((e) => {
+//             const key = e.donator;
+//             const formattedAmount = e.amount.toLocaleString(undefined, {
+//                 style: 'currency',
+//                 currency: e.currency,
+//                 minimumFractionDigits: 2
+//             });
+
+//             if (donatorTotals[key]) {
+//                 donatorTotals[key] += e.amount;
+//             } else {
+//                 donatorTotals[key] = e.amount;
+//             }
+//         });
+
+//         const listItems = Object.entries(donatorTotals).map(([donator, total]) => {
+//             const formattedTotal = total.toLocaleString(undefined, {
+//                 style: 'currency',
+//                 currency: arraySuperChat.find((e) => e.donator === donator).currency,
+//                 minimumFractionDigits: 2
+//             });
+
+//             return `<li>${donator}: ${formattedTotal}</li>`;
+//         });
+
+//         const ul = `<ul>${listItems.join('')}</ul>`;
+
+//         currencySpans.forEach((e) => {
+//             $('#div-superchat').append(e)
+//         });
+//         $('#div-superchat').append(`<span class="badge rounded-pill text-bg-danger" id="btn-show-donators" style="cursor: pointer;">${arraySuperChat.length} Doações</span>`);
+//         $('#donator-modal-body').append(ul);
+//         $('#div-superchat').show();
+//         donatorTotals = {};
+//         currencyTotals = {};
+//         arraySuperChat = [];
+//     } else {
+//         $('#div-superchat').hide();
+//     }
+// }
 
 async function createCommentTable(pList, pTableName) {
     $('#' + pTableName).empty();
