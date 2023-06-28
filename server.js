@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser');
 var cron = require('node-cron');
 
 cron.schedule('*/14 * * * *', () => {
-  axios.get('https://chatreplayviewer.onrender.com/')
+  axios.get('https://chatreplayapi.onrender.com/')
     .then(response => {
       console.log('Server is up and running');
       // Faça o que desejar com a resposta do servidor aqui
