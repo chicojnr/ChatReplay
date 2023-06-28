@@ -17,7 +17,7 @@ cron.schedule('*/14 * * * *', () => {
       // Faça o que desejar em caso de erro (servidor inacessível) aqui
     });
 
-    axios.post('https://jwtlogin.onrender.com/api/users/login', {
+    axios.post('https://ytjwtlogin.onrender.com/api/users/login', {
       email: 'email',
       password: 'password'
     })
