@@ -16,17 +16,17 @@
 <body>
     <div class="loader-screen" id="load-screen">
         <div class="loader">
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
         </div>
-      </div>
+    </div>
     <div class="login-box">
         <h2>Chat Replay</h2>
 
         <form id="login-form">
             <div class="form-group">
-                <label for="email">Email</label>
+                <label for="email">E-mail</label>
                 <i class="fa-solid fa-user"></i>
                 <input type="email" id="email" placeholder="email" required>
             </div>
@@ -40,23 +40,47 @@
             <button class="btn" id="btn-submit">Log In</button>
         </div>
     </div>
+    <div class="frame" id="modal-error">
+        <div class="modal">
+            <img src="https://100dayscss.com/codepen/alert.png" width="44" height="38" />
+            <span class="title">Burrão Hein?!</span>
+            <br>
+            <br>
+            <br>
+            <p>E-mail ou senha incorretos</p>
+            <div class="button" id="btn-modal-error-close">Fechar</div>
+        </div>
+    </div>
     <script>
         const loginButton = document.querySelector('#btn-submit');
+        const closeButton = document.querySelector('#btn-modal-error-close');
+
+        closeButton.addEventListener('click', async () => {
+            document.getElementById('modal-error').style.display = 'none';
+            document.querySelector('#email').value = '';
+            document.querySelector('#password').value = '';
+            document.querySelector('#email').focus();
+            
+        });
 
         loginButton.addEventListener('click', async () => {
             const email = document.querySelector('#email').value;
             const password = document.querySelector('#password').value;
 
             try {
+                document.getElementById('load-screen').style.display = 'block';
                 const response = await axios.post('/auth', { email, password });
 
                 // Redirecionar para a página inicial ou realizar outras ações necessárias
                 window.location.href = '/';
             } catch (error) {
-                console.error('Erro:', error);
+                console.error('Erro:', error.response.data.error);
+                if(error.response.data.error === 'Erro na requisição de login') {
+                    document.getElementById('modal-error').style.display = 'block';
+                }
                 // Manipule o erro de autenticação
             } finally {
-
+                document.getElementById('load-screen').style.display = 'none';
             }
         });
     </script>
