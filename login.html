@@ -9,10 +9,18 @@
     <title>Youtube Chat Replay | Login</title>
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/login.css">
+    <link rel="stylesheet" href="/loader.css">
     <script src="https://kit.fontawesome.com/585fda3aab.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <div class="loader-screen" id="load-screen">
+        <div class="loader">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
     <div class="login-box">
         <h2>Chat Replay</h2>
 
@@ -47,6 +55,8 @@
             } catch (error) {
                 console.error('Erro:', error);
                 // Manipule o erro de autenticação
+            } finally {
+
             }
         });
     </script>

@@ -7,16 +7,6 @@ const cookieParser = require('cookie-parser');
 var cron = require('node-cron');
 
 cron.schedule('*/14 * * * *', () => {
-  axios.get('https://chatreplayapi.onrender.com/')
-    .then(response => {
-      console.log('Server is up and running');
-      // Faça o que desejar com a resposta do servidor aqui
-    })
-    .catch(error => {
-      console.log('Server is down');
-      // Faça o que desejar em caso de erro (servidor inacessível) aqui
-    });
-
     axios.post('https://ytjwtlogin.onrender.com/api/users/login', {
       email: 'email',
       password: 'password'
