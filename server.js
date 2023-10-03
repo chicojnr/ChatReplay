@@ -29,21 +29,22 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.get('/', async (req, res) => {
-  const token = req.cookies.token;
+  // const token = req.cookies.token;
 
-  if (!token) {
-    return res.sendFile(__dirname + '/login.html'); // Redireciona para a página de login se o token não estiver presente nos cookies
-  }
+  // if (!token) {
+  //   return res.sendFile(__dirname + '/login.html'); // Redireciona para a página de login se o token não estiver presente nos cookies
+  // }
 
-  jwt.verify(token, 'randomstring', (err, decoded) => {
-    if (err) {
-      console.error('Erro na verificação do JWT:', err);
-      return res.sendFile(__dirname + '/login.html'); // Redireciona para a página de login se o token for inválido
-    }
+  // jwt.verify(token, 'randomstring', (err, decoded) => {
+  //   if (err) {
+  //     console.error('Erro na verificação do JWT:', err);
+  //     return res.sendFile(__dirname + '/login.html'); // Redireciona para a página de login se o token for inválido
+  //   }
 
-    console.log('Autenticado!');
-    res.sendFile(__dirname + '/index.html'); // Renderiza a página index.html se o token for válido
-  });
+  //   console.log('Autenticado!');
+  //   res.sendFile(__dirname + '/index.html'); // Renderiza a página index.html se o token for válido
+  // });
+  res.sendFile(__dirname + '/index.html'); // Renderiza a página index.html se o token for válido
 });
 
 app.post('/auth', (req, res) => {
